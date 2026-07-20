@@ -22,10 +22,14 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "br413",
+    "name": "Bobby Ray",
+    "alternateName": "br413",
     "jobTitle": "Senior Data Engineer & Data Architect",
     "url": "https://br413.github.io/",
-    "sameAs": ["https://github.com/br413"],
+    "sameAs": [
+      "https://github.com/br413",
+      "https://dev.to/bobby_ray_581732c715283b2"
+    ],
     "knowsAbout": ["Data Engineering", "Data Architecture", "Cloud Data Platforms", "dbt", "Apache Airflow", "Lakehouse", "ETL", "Terraform"]
   }
   </script>
@@ -36,6 +40,7 @@
       <a class="logo" href="#">br413</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#platform">Platform</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#oss">Open Source</a></li>
         <li><a href="#writing">Writing</a></li>
@@ -60,8 +65,8 @@
       </ul>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://github.com/br413/production-data-pipeline">View flagship project</a>
-        <a class="btn btn-secondary" href="#projects">Full portfolio</a>
-        <a class="btn btn-secondary" href="https://github.com/br413">GitHub</a>
+        <a class="btn btn-secondary" href="#platform">How I design platforms</a>
+        <a class="btn btn-secondary" href="https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-57md">Read on Dev.to</a>
       </div>
     </section>
 
@@ -75,8 +80,9 @@
     <section id="about" class="section">
       <h2>About</h2>
       <p>
-        I turn fragmented sources into <strong>reliable, observable, analytics-ready platforms</strong>.
-        Senior data engineering, to me, is less about tool count and more about judgment under constraint:
+        I'm <strong>Bobby Ray</strong> (<a href="https://github.com/br413">br413</a>) — a Senior Data Engineer and Data Architect
+        who turns fragmented sources into <strong>reliable, observable, analytics-ready platforms</strong>.
+        Senior data engineering, to me, is less about tool count and more about <strong>judgment under constraint</strong>:
         choosing trade-offs intentionally, designing for failure before the first incident, and keeping systems
         understandable for the team that inherits them.
       </p>
@@ -85,6 +91,20 @@
         a contract-driven quality observability tool, and a medallion lakehouse blueprint with Terraform and
         CI validation. Together they show how I think about the full data lifecycle, not isolated scripts.
       </p>
+      <div class="signals-grid">
+        <article class="signal-card">
+          <h3>System design</h3>
+          <p>Architecture diagrams, ADRs, and explicit boundaries between ingestion, transformation, quality, and platform layers.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Failure handling</h3>
+          <p>Checkpoint recovery, idempotent loads, quality gates before bronze, and runbooks for 2 AM incidents.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Operational proof</h3>
+          <p>pytest coverage, GitHub Actions CI, smoke tests, alert routing, and documented trade-offs in every flagship repo.</p>
+        </article>
+      </div>
       <div class="skills-grid">
         <article class="skill-card">
           <h3>Data engineering</h3>
@@ -105,29 +125,67 @@
       </div>
     </section>
 
+    <section id="platform" class="section">
+      <h2>Platform approach</h2>
+      <p class="section-intro">
+        Senior data platform work is a stack, not a single pipeline. My portfolio models how ingestion,
+        quality, and platform governance connect in production.
+      </p>
+      <div class="platform-flow">
+        <div class="platform-step">
+          <span class="platform-label">Layer 1</span>
+          <h3>Ingest &amp; transform</h3>
+          <p><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></p>
+          <p class="platform-detail">Incremental API ingestion, PostgreSQL bronze, dbt silver/gold, Airflow orchestration, webhook alerts.</p>
+        </div>
+        <div class="platform-step">
+          <span class="platform-label">Layer 2</span>
+          <h3>Quality &amp; observability</h3>
+          <p><a href="https://github.com/br413/data-quality-observability">data-quality-observability</a></p>
+          <p class="platform-detail">YAML data contracts, schema/freshness/RI checks, persisted run history, alert routing.</p>
+        </div>
+        <div class="platform-step">
+          <span class="platform-label">Layer 3</span>
+          <h3>Platform &amp; governance</h3>
+          <p><a href="https://github.com/br413/cloud-lakehouse-blueprint">cloud-lakehouse-blueprint</a></p>
+          <p class="platform-detail">Medallion manifests, Terraform IaC, IAM governance, lineage graph, CI validation.</p>
+        </div>
+      </div>
+      <p class="platform-outcome">
+        <strong>Outcome:</strong> pipelines that fail loudly, contracts that catch drift early, and platform patterns
+        that teams can operate without tribal knowledge.
+      </p>
+    </section>
+
     <section id="projects" class="section">
       <h2>Data engineering portfolio</h2>
-      <p class="section-intro">Production-style open-source projects with architecture docs, tests, CI, and operations runbooks.</p>
+      <p class="section-intro">Production-style open-source projects with architecture docs, ADRs, tests, CI, and operations runbooks.</p>
       <div class="project-grid">
         <article class="project-card">
+          <p class="project-tier">Flagship · End-to-end pipeline</p>
           <h3><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></h3>
           <p>Incremental API ingestion with PostgreSQL bronze landing, dbt silver/gold models, Airflow orchestration, and webhook alerts.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> checkpoint recovery, idempotent loads, and dbt test gates that stop bad data before gold.</p>
           <ul class="tags">
             <li>Python</li><li>dbt</li><li>Airflow</li><li>PostgreSQL</li><li>ETL</li>
           </ul>
           <a class="project-link" href="https://github.com/br413/production-data-pipeline/releases/tag/v0.1.0">v0.1.0 release →</a>
         </article>
         <article class="project-card">
+          <p class="project-tier">Quality layer · Contracts &amp; observability</p>
           <h3><a href="https://github.com/br413/data-quality-observability">data-quality-observability</a></h3>
           <p>YAML data contracts with schema, freshness, and referential-integrity checks, persisted history, and alert routing.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> contract-driven checks with run history — quality regressions are auditable, not one-off surprises.</p>
           <ul class="tags">
             <li>Data contracts</li><li>Observability</li><li>Airflow</li><li>Python</li>
           </ul>
           <a class="project-link" href="https://github.com/br413/data-quality-observability">View repository →</a>
         </article>
         <article class="project-card">
+          <p class="project-tier">Platform layer · Lakehouse blueprint</p>
           <h3><a href="https://github.com/br413/cloud-lakehouse-blueprint">cloud-lakehouse-blueprint</a></h3>
           <p>Medallion architecture manifests, Terraform IaC, IAM governance, lineage graph, and CI validation with <code>validate --json</code>.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> platform decisions encoded in IaC, manifests, and CI — not slide-deck architecture.</p>
           <ul class="tags">
             <li>Lakehouse</li><li>Terraform</li><li>AWS</li><li>Data architecture</li>
           </ul>
@@ -138,18 +196,19 @@
 
     <section id="oss" class="section">
       <h2>Open-source contributions</h2>
+      <p class="section-intro">Production operations knowledge contributed upstream to orchestration and analytics tooling teams rely on daily.</p>
       <div class="oss-list">
         <article class="oss-item">
           <h3><a href="https://github.com/PrefectHQ/prefect/pull/22500">Prefect #22500</a> <span class="badge merged">merged</span></h3>
-          <p>Document <code>/api/health</code> vs <code>/api/ready</code> for Kubernetes probes.</p>
+          <p>Kubernetes readiness vs liveness probes for workflow orchestrators — the kind of ops detail that prevents false-positive deploy rollbacks.</p>
         </article>
         <article class="oss-item">
-          <h3><a href="https://github.com/apache/airflow/pull/69857">Apache Airflow #69857</a> <span class="badge open">open</span></h3>
-          <p>Update SQLAlchemy pooling link to 2.0 docs.</p>
+          <h3><a href="https://github.com/PrefectHQ/prefect/pull/22533">Prefect #22533</a> <span class="badge open">open</span></h3>
+          <p>Clarify global concurrency limit setup for production Prefect deployments.</p>
         </article>
         <article class="oss-item">
           <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9606">dbt docs #9606</a> <span class="badge open">open</span></h3>
-          <p>Troubleshooting note for prefixed custom schema names.</p>
+          <p>Troubleshooting note for prefixed custom schema names — a deployment pitfall that breaks analytics environments silently.</p>
         </article>
       </div>
     </section>
@@ -168,6 +227,7 @@
       <p>Open to senior data engineering roles, data platform architecture discussions, and technical collaboration with engineering teams building analytics infrastructure, quality tooling, or lakehouse platforms.</p>
       <ul class="contact-links">
         <li><a href="https://github.com/br413">GitHub</a></li>
+        <li><a href="https://dev.to/bobby_ray_581732c715283b2">Dev.to</a></li>
         <li><a href="https://github.com/br413/production-data-pipeline">Portfolio repo</a></li>
         <li><a href="https://github.com/br413/br413/discussions">Discussions</a></li>
       </ul>
@@ -175,7 +235,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 br413 · Senior Data Engineer &amp; Data Architect</p>
+    <p>&copy; 2026 Bobby Ray (br413) · Senior Data Engineer &amp; Data Architect</p>
   </footer>
 </body>
 </html>
