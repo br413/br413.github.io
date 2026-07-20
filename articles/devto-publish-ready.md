@@ -2,14 +2,42 @@
 
 Use this file after reviewing `building-production-data-pipeline.md`.
 
+## Cover image
+
+**Recommended (included in this repo):** `assets/devto-cover-production-pipeline.png`
+
+After pushing to GitHub, use this public URL when updating the post:
+
+```text
+https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-production-pipeline.png
+```
+
+**Option A — Dev.to editor (easiest for an already-published post):**
+
+1. Open your [article on Dev.to](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-57md) → Edit
+2. Upload `assets/devto-cover-production-pipeline.png` as the cover (1000×420 works best)
+
+**Option B — API on next publish:**
+
+```powershell
+$env:DEVTO_COVER_IMAGE = "https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-production-pipeline.png"
+.\scripts\publish-devto.ps1
+```
+
+**Other cover styles that fit this article:**
+
+| Style | Idea |
+|-------|------|
+| Architecture flow | API → Bronze → Silver → Gold → Consumers (matches article diagram) |
+| Failure modes | Split panel: "silent failure" vs "fail loudly" with checkpoint recovery callout |
+| Code + ops | Terminal snippet of ingestion command beside a small medallion layer stack |
+| Dark minimal | Navy background, one accent color, title only — matches [br413.github.io](https://br413.github.io/) |
+
 ## Before publishing
 
 1. Get API key: [Dev.to settings → Extensions](https://dev.to/settings/extensions)
-2. Optional: set cover image URL — architecture diagram or dark pipeline graphic (1000×420 recommended)
-   ```powershell
-   $env:DEVTO_COVER_IMAGE = "https://your-public-image-url.png"
-   ```
-3. Review title and tags in front matter (max 4 tags on Dev.to — script uses 5; trim if API rejects)
+2. Push `assets/devto-cover-production-pipeline.png` to GitHub if using the hosted cover URL
+3. Review title and tags in front matter (max 4 tags on Dev.to)
 
 ## Publish
 
@@ -26,28 +54,18 @@ The script will:
 
 ## After publishing
 
-1. Add cover image in Dev.to editor if you skipped `DEVTO_COVER_IMAGE`
+1. Add or confirm the cover image in the Dev.to editor
 2. Pin the post on your Dev.to profile
-3. Share on LinkedIn with one concrete takeaway (e.g. checkpoint recovery pattern)
-4. Commit the updated `index.html` link:
-   ```powershell
-   git add index.html articles/devto-response.json
-   git commit -m "docs: link published Dev.to pipeline article"
-   git push
-   ```
+3. Cross-link from your [GitHub profile README](https://github.com/br413/br413) and [portfolio site](https://br413.github.io/)
+4. Share in relevant Dev.to tags or GitHub Discussions if you want extra visibility
 
-## Suggested LinkedIn post (copy/paste after publish)
+## Suggested Dev.to cross-post blurb (for comments or series intro)
 
 > Production data pipelines are defined by how they handle failure, not the happy path.
 >
-> I wrote about the patterns I use in my open-source pipeline project: incremental checkpoints, idempotent loads, medallion layering with dbt, and Airflow orchestration with explicit failure modes.
+> This walkthrough covers incremental checkpoints, idempotent loads, medallion layering with dbt, and Airflow orchestration with explicit failure modes.
 >
-> Full walkthrough: [DEVTO_URL]
 > Source code: https://github.com/br413/production-data-pipeline
->
-> #dataengineering #dbt #airflow #python
-
-Replace `[DEVTO_URL]` with the URL from the publish script output.
 
 ---
 

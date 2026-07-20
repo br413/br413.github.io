@@ -5,9 +5,7 @@ description: "How to design idempotent API ingestion, checkpoint recovery, medal
 tags: dataengineering, python, dbt, airflow, etl
 series: Cloud Data Platform Patterns
 canonical_url: https://github.com/br413/production-data-pipeline
-# Cover image: upload a 1000×420 banner in Dev.to editor, or set DEVTO_COVER_IMAGE to a public URL before running publish-devto.ps1
-# Suggested cover: architecture diagram screenshot or dark-themed pipeline flow graphic
-cover_image:
+# Cover image: assets/devto-cover-production-pipeline.png (upload in Dev.to editor or use raw GitHub URL after push)
 ---
 
 Operational analytics breaks when pipelines silently drop records, re-process duplicates, or push schema drift into dashboards. This article walks through a **production-style data pipeline** pattern: incremental API ingestion, explicit checkpoints, medallion-style layering, and orchestration with Apache Airflow and dbt.
