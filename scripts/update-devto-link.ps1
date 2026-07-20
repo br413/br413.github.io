@@ -9,11 +9,12 @@ param(
 $indexPath = Join-Path $PSScriptRoot "..\index.html"
 $html = Get-Content $indexPath -Raw
 
-$oldPattern = '<h3><a href="https://dev\.to/[^"]*">Building a Production Data Pipeline with Incremental Loading and dbt</a></h3>'
+$oldPattern = '<h3><a href="[^"]*">Building a Production Data Pipeline with Incremental Loading and dbt</a>(?:\s*<span class="badge open">ready to publish</span>)?</h3>'
 $newLink = "<h3><a href=`"$ArticleUrl`">Building a Production Data Pipeline with Incremental Loading and dbt</a></h3>"
 
 if ($html -match 'Building a Production Data Pipeline with Incremental Loading and dbt') {
-    $html = $html -replace '<h3><a href="[^"]*">Building a Production Data Pipeline with Incremental Loading and dbt</a></h3>', $newLink
+    $html = $html -replace $oldPattern, $newLink
+    $html = $html -replace '<p class="writing-meta">Publish with.*?</p>\s*', ''
     Set-Content $indexPath $html -NoNewline
     Write-Host "Updated index.html with Dev.to link: $ArticleUrl"
 } else {

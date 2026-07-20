@@ -107,14 +107,33 @@ main {
   font-size: clamp(2rem, 5vw, 2.75rem);
   line-height: 1.15;
   margin: 0 0 1rem;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 
 .lead {
   font-size: 1.125rem;
   color: var(--text-muted);
-  max-width: 52ch;
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+}
+
+.hero-highlights {
+  list-style: none;
   margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 62ch;
+}
+
+.hero-highlights li {
+  color: var(--text-muted);
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+.hero-highlights strong {
+  color: var(--text);
 }
 
 .hero-actions {
@@ -172,6 +191,12 @@ main {
 .section-intro {
   color: var(--text-muted);
   margin: 0 0 1.5rem;
+}
+
+.writing-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.75rem 0 0;
 }
 
 .skills-grid,

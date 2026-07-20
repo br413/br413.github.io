@@ -5,18 +5,18 @@
   <meta name="google-site-verification" content="tmuS6i3hrTbfIXr8W78PZeYxef0q2Nk73dkIH6csWcY">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senior Data Engineer &amp; Data Architect | br413</title>
-  <meta name="description" content="Senior Data Engineer and Data Architect building cloud data platforms, production ETL pipelines, lakehouse architecture, and data quality observability with Python, dbt, Airflow, Terraform, AWS, and Snowflake.">
+  <meta name="description" content="Senior Data Engineer building contract-driven data platforms where pipelines fail loudly, not silently — incremental ETL, medallion lakehouse architecture, and observability with Python, dbt, Airflow, and Terraform.">
   <meta name="keywords" content="data engineer, data architect, cloud data platform, lakehouse, ETL pipeline, dbt, Airflow, Terraform, AWS, Snowflake, Databricks">
   <meta name="author" content="br413">
   <link rel="canonical" href="https://br413.github.io/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://br413.github.io/sitemap.xml">
   <meta property="og:title" content="Senior Data Engineer &amp; Data Architect | br413">
-  <meta property="og:description" content="Cloud data platforms, production ETL pipelines, medallion lakehouse architecture, and data quality observability.">
+  <meta property="og:description" content="Production data platforms with incremental pipelines, contract-driven quality checks, and lakehouse patterns that survive failure and schema drift.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://br413.github.io/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Senior Data Engineer &amp; Data Architect | br413">
-  <meta name="twitter:description" content="Cloud data platforms, production ETL pipelines, and lakehouse architecture.">
+  <meta name="twitter:description" content="Production data platforms with incremental pipelines, contract-driven quality, and lakehouse patterns built for operational scale.">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -38,6 +38,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#oss">Open Source</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -46,15 +47,21 @@
   <main>
     <section class="hero" id="top">
       <p class="eyebrow">Senior Data Engineer &amp; Data Architect</p>
-      <h1>Cloud data platforms, reliable pipelines, and observable analytics systems</h1>
+      <h1>Data platforms where pipelines fail loudly — not silently</h1>
       <p class="lead">
-        I design and build production-grade data systems — incremental ETL pipelines,
-        medallion lakehouse architecture, contract-driven data quality, and platform automation
-        on AWS, Azure, Databricks, and Snowflake.
+        I build production-grade systems that survive partial failures, schema drift, and operational scale:
+        incremental ingestion with checkpoint recovery, contract-driven data quality, medallion lakehouse
+        patterns, and CI-validated platform automation on AWS, Azure, Databricks, and Snowflake.
       </p>
+      <ul class="hero-highlights">
+        <li><strong>End-to-end ownership</strong> — ingestion, transformation, orchestration, and observability</li>
+        <li><strong>Operational maturity</strong> — idempotent loads, run history, alerts, and documented recovery</li>
+        <li><strong>Platform thinking</strong> — IaC, governance, lineage, and tests that catch regressions before production</li>
+      </ul>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/br413/production-data-pipeline">View portfolio</a>
-        <a class="btn btn-secondary" href="https://github.com/br413">GitHub profile</a>
+        <a class="btn btn-primary" href="https://github.com/br413/production-data-pipeline">View flagship project</a>
+        <a class="btn btn-secondary" href="#projects">Full portfolio</a>
+        <a class="btn btn-secondary" href="https://github.com/br413">GitHub</a>
       </div>
     </section>
 
@@ -68,9 +75,15 @@
     <section id="about" class="section">
       <h2>About</h2>
       <p>
-        I turn fragmented data sources into <strong>reliable, observable, analytics-ready platforms</strong>.
-        My work spans data engineering, data architecture, and developer-focused automation —
-        with a focus on patterns that survive partial failures, schema drift, and operational scale.
+        I turn fragmented sources into <strong>reliable, observable, analytics-ready platforms</strong>.
+        Senior data engineering, to me, is less about tool count and more about judgment under constraint:
+        choosing trade-offs intentionally, designing for failure before the first incident, and keeping systems
+        understandable for the team that inherits them.
+      </p>
+      <p>
+        My open-source work spans three connected layers — a production ETL pipeline with Airflow and dbt,
+        a contract-driven quality observability tool, and a medallion lakehouse blueprint with Terraform and
+        CI validation. Together they show how I think about the full data lifecycle, not isolated scripts.
       </p>
       <div class="skills-grid">
         <article class="skill-card">
@@ -143,15 +156,17 @@
 
     <section id="writing" class="section">
       <h2>Writing</h2>
+      <p class="section-intro">Technical articles on production pipeline patterns, failure handling, and platform design.</p>
       <article class="oss-item">
-        <h3><a href="https://dev.to/">Building a Production Data Pipeline with Incremental Loading and dbt</a></h3>
-        <p>How to design idempotent ingestion, checkpoint stores, and medallion-style transformations with Airflow and dbt.</p>
+        <h3><a href="https://dev.to/">Building a Production Data Pipeline with Incremental Loading and dbt</a> <span class="badge open">ready to publish</span></h3>
+        <p>How to design idempotent ingestion, checkpoint stores, medallion-style transformations, and Airflow orchestration — with failure modes and scale trade-offs.</p>
+        <p class="writing-meta">Publish with <code>.\scripts\publish-devto.ps1</code> after setting <code>DEVTO_API_KEY</code>.</p>
       </article>
     </section>
 
     <section id="contact" class="section contact">
       <h2>Collaboration</h2>
-      <p>Open to open-source data platform contributions, lakehouse design discussions, data quality tooling, and technical collaboration with engineering teams.</p>
+      <p>Open to senior data engineering roles, data platform architecture discussions, and technical collaboration with engineering teams building analytics infrastructure, quality tooling, or lakehouse platforms.</p>
       <ul class="contact-links">
         <li><a href="https://github.com/br413">GitHub</a></li>
         <li><a href="https://github.com/br413/production-data-pipeline">Portfolio repo</a></li>

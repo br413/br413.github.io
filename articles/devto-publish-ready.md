@@ -1,18 +1,63 @@
+# Dev.to publish checklist
+
+Use this file after reviewing `building-production-data-pipeline.md`.
+
+## Before publishing
+
+1. Get API key: [Dev.to settings → Extensions](https://dev.to/settings/extensions)
+2. Optional: set cover image URL — architecture diagram or dark pipeline graphic (1000×420 recommended)
+   ```powershell
+   $env:DEVTO_COVER_IMAGE = "https://your-public-image-url.png"
+   ```
+3. Review title and tags in front matter (max 4 tags on Dev.to — script uses 5; trim if API rejects)
+
+## Publish
+
+```powershell
+cd C:\Users\Administrator\Projects\br413.github.io
+$env:DEVTO_API_KEY = "your-key-here"
+.\scripts\publish-devto.ps1
+```
+
+The script will:
+- Post the article as published
+- Save response to `articles/devto-response.json`
+- Update `index.html` Writing link automatically
+
+## After publishing
+
+1. Add cover image in Dev.to editor if you skipped `DEVTO_COVER_IMAGE`
+2. Pin the post on your Dev.to profile
+3. Share on LinkedIn with one concrete takeaway (e.g. checkpoint recovery pattern)
+4. Commit the updated `index.html` link:
+   ```powershell
+   git add index.html articles/devto-response.json
+   git commit -m "docs: link published Dev.to pipeline article"
+   git push
+   ```
+
+## Suggested LinkedIn post (copy/paste after publish)
+
+> Production data pipelines are defined by how they handle failure, not the happy path.
+>
+> I wrote about the patterns I use in my open-source pipeline project: incremental checkpoints, idempotent loads, medallion layering with dbt, and Airflow orchestration with explicit failure modes.
+>
+> Full walkthrough: [DEVTO_URL]
+> Source code: https://github.com/br413/production-data-pipeline
+>
+> #dataengineering #dbt #airflow #python
+
+Replace `[DEVTO_URL]` with the URL from the publish script output.
+
 ---
-title: "Building a Production Data Pipeline with Incremental Loading and dbt"
-published: false
-description: "How to design idempotent API ingestion, checkpoint recovery, medallion layering, and Airflow orchestration — with failure modes and scale trade-offs every senior data engineer should document."
-tags: dataengineering, python, dbt, airflow, etl
-series: Cloud Data Platform Patterns
-canonical_url: https://github.com/br413/production-data-pipeline
-# Cover image: upload a 1000×420 banner in Dev.to editor, or set DEVTO_COVER_IMAGE to a public URL before running publish-devto.ps1
-# Suggested cover: architecture diagram screenshot or dark-themed pipeline flow graphic
-cover_image:
----
+
+## Article body (also in building-production-data-pipeline.md)
+
+> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [production-data-pipeline](https://github.com/br413/production-data-pipeline)
 
 Operational analytics breaks when pipelines silently drop records, re-process duplicates, or push schema drift into dashboards. This article walks through a **production-style data pipeline** pattern: incremental API ingestion, explicit checkpoints, medallion-style layering, and orchestration with Apache Airflow and dbt.
 
-> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [production-data-pipeline](https://github.com/br413/production-data-pipeline)
+> Full source code: [production-data-pipeline](https://github.com/br413/production-data-pipeline)
 
 ## The problem
 
@@ -22,8 +67,6 @@ Most demo pipelines assume APIs are always available, schemas never change, and 
 - **Idempotency** — duplicate deliveries must not inflate metrics
 - **Separable layers** — raw landing, validated staging, and curated aggregates tested independently
 - **Operational visibility** — know when a run ingested zero records or failed mid-page
-
-If your pipeline cannot recover at 2 AM without tribal knowledge, it is not production-ready.
 
 ## Architecture overview
 
