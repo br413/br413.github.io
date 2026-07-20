@@ -61,7 +61,8 @@ if ($CoverImage) {
     $articlePayload.main_image = $CoverImage
 }
 
-$payload = @{ article = $articlePayload } | ConvertTo-Json -Depth 5
+$payload = @{ article = $articlePayload } | ConvertTo-Json -Depth 10 -Compress
+$payloadBytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
 
 Write-Host "Publishing to Dev.to..."
 Write-Host "  Title: $title"
@@ -70,14 +71,24 @@ Write-Host "  Series: $series"
 if ($CoverImage) {
     Write-Host "  Cover: $CoverImage"
 } else {
-    Write-Host "  Cover: (none — add in Dev.to editor after publish, or set DEVTO_COVER_IMAGE)"
+    Write-Host "  Cover: (none - add in Dev.to editor after publish, or set DEVTO_COVER_IMAGE)"
 }
 
 $response = Invoke-RestMethod `
     -Uri "https://dev.to/api/articles" `
     -Method Post `
-    -Headers @{ "api-key" = $ApiKey; "Content-Type" = "application/json" } `
-    -Body $payload
+    -Headers @{
+        "api-key"      = $ApiKey
+        "Content-Type" = "application/json; charset=utf-8"
+        "Accept"       = "application/vnd.forem.api-v1+json"
+        "User-Agent"   = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    } `
+    -Body $payloadBytes
+
+if (-not $response.url) {
+    Write-Error "Dev.to publish succeeded but no article URL was returned."
+    exit 1
+}
 
 Write-Host ""
 Write-Host "Published: $($response.url)"
