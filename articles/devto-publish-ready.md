@@ -14,7 +14,7 @@ https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-
 
 **Option A — Dev.to editor (easiest for an already-published post):**
 
-1. Open your [article on Dev.to](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-57md) → Edit
+1. Open your [article on Dev.to](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c) → Edit
 2. Upload `assets/devto-cover-production-pipeline.png` as the cover (1000×420 works best)
 
 **Option B — API on next publish:**
