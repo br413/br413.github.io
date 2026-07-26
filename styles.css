@@ -337,6 +337,17 @@ main {
 
 .project-card h3 a:hover { color: var(--accent); }
 
+.project-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(31, 111, 235, 0.08), rgba(35, 134, 54, 0.06));
+  box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.15);
+}
+
+.project-card.featured .project-tier {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;

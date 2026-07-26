@@ -64,9 +64,9 @@
         <li><strong>Platform thinking</strong> — IaC, governance, lineage, and tests that catch regressions before production</li>
       </ul>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/br413/production-data-pipeline">View flagship project</a>
+        <a class="btn btn-primary" href="https://github.com/br413/lakehouse-platform-starter">View flagship project</a>
+        <a class="btn btn-secondary" href="https://br413.github.io/lakehouse-platform-starter/">dbt docs (live)</a>
         <a class="btn btn-secondary" href="#platform">How I design platforms</a>
-        <a class="btn btn-secondary" href="https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c">Read on Dev.to</a>
       </div>
     </section>
 
@@ -87,9 +87,9 @@
         understandable for the team that inherits them.
       </p>
       <p>
-        My open-source work spans three connected layers — a production ETL pipeline with Airflow and dbt,
-        a contract-driven quality observability tool, and a medallion lakehouse blueprint with Terraform and
-        CI validation. Together they show how I think about the full data lifecycle, not isolated scripts.
+        My open-source work spans connected layers — a **runnable lakehouse platform** (Iceberg, Trino, Cosmos, OpenLineage),
+        a production ETL pipeline with Airflow and dbt, contract-driven quality observability, and platform IaC blueprints.
+        Together they show how I think about the full data lifecycle, not isolated scripts.
       </p>
       <div class="signals-grid">
         <article class="signal-card">
@@ -133,6 +133,12 @@
       </p>
       <div class="platform-flow">
         <div class="platform-step">
+          <span class="platform-label">Flagship</span>
+          <h3>Lakehouse platform</h3>
+          <p><a href="https://github.com/br413/lakehouse-platform-starter">lakehouse-platform-starter</a></p>
+          <p class="platform-detail">Iceberg + Trino + Cosmos dbt + Airflow + OpenLineage + GE — runnable Docker stack, CI, hosted dbt docs.</p>
+        </div>
+        <div class="platform-step">
           <span class="platform-label">Layer 1</span>
           <h3>Ingest &amp; transform</h3>
           <p><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></p>
@@ -161,8 +167,18 @@
       <h2>Data engineering portfolio</h2>
       <p class="section-intro">Production-style open-source projects with architecture docs, ADRs, tests, CI, and operations runbooks.</p>
       <div class="project-grid">
+        <article class="project-card featured">
+          <p class="project-tier">Flagship · Runnable lakehouse platform</p>
+          <h3><a href="https://github.com/br413/lakehouse-platform-starter">lakehouse-platform-starter</a></h3>
+          <p>Airflow + Cosmos orchestrates PyIceberg ingest into Iceberg bronze, dbt-trino transforms via Trino, OpenLineage feeds Marquez, and Great Expectations gates publish.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> dual DuckDB/Trino targets, 14 dbt tests, incremental marts, Terraform IaC, CI smoke tests, and <a href="https://br413.github.io/lakehouse-platform-starter/">hosted dbt docs</a>.</p>
+          <ul class="tags">
+            <li>Iceberg</li><li>Trino</li><li>dbt</li><li>Airflow</li><li>Cosmos</li><li>OpenLineage</li>
+          </ul>
+          <a class="project-link" href="https://github.com/br413/lakehouse-platform-starter/releases/tag/v1.0.0">v1.0.0 release →</a>
+        </article>
         <article class="project-card">
-          <p class="project-tier">Flagship · End-to-end pipeline</p>
+          <p class="project-tier">End-to-end pipeline</p>
           <h3><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></h3>
           <p>Incremental API ingestion with PostgreSQL bronze landing, dbt silver/gold models, Airflow orchestration, and webhook alerts.</p>
           <p class="project-signal"><strong>Senior signal:</strong> checkpoint recovery, idempotent loads, and dbt test gates that stop bad data before gold.</p>
@@ -199,6 +215,10 @@
       <p class="section-intro">Production operations knowledge contributed upstream to orchestration and analytics tooling teams rely on daily.</p>
       <div class="oss-list">
         <article class="oss-item">
+          <h3><a href="https://github.com/apache/airflow/pull/70185">Airflow #70185</a> <span class="badge open">open</span></h3>
+          <p>Attach dbt Cloud job metadata to OpenLineage events — RUN-level lineage for dbt Cloud jobs in Airflow.</p>
+        </article>
+        <article class="oss-item">
           <h3><a href="https://github.com/PrefectHQ/prefect/pull/22500">Prefect #22500</a> <span class="badge merged">merged</span></h3>
           <p>Kubernetes readiness vs liveness probes for workflow orchestrators — the kind of ops detail that prevents false-positive deploy rollbacks.</p>
         </article>
@@ -228,7 +248,8 @@
       <ul class="contact-links">
         <li><a href="https://github.com/br413">GitHub</a></li>
         <li><a href="https://dev.to/bobby_ray_581732c715283b2">Dev.to</a></li>
-        <li><a href="https://github.com/br413/production-data-pipeline">Portfolio repo</a></li>
+        <li><a href="https://github.com/br413/lakehouse-platform-starter">Flagship repo</a></li>
+        <li><a href="https://br413.github.io/lakehouse-platform-starter/">dbt docs (live)</a></li>
         <li><a href="https://github.com/br413/br413/discussions">Discussions</a></li>
       </ul>
     </section>
