@@ -329,6 +329,20 @@ main {
   font-size: 0.95rem;
 }
 
+.writing-repos {
+  margin-top: 0.75rem !important;
+  font-size: 0.875rem !important;
+}
+
+.writing-repos a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.writing-repos a:hover {
+  text-decoration: underline;
+}
+
 .project-card h3 a,
 .oss-item h3 a {
   color: var(--text);
