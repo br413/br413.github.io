@@ -39,20 +39,20 @@ Curated / gold layer (fct_daily_event_metrics)
 Downstream consumers
 ```
 
-Each boundary has a clear responsibility. Ingestion handles pagination and cursor advancement. Bronze stores append-only raw events. dbt owns transformation logic and data tests. Airflow schedules and retries the workflow.
+Each boundary has a clear responsibility. Ingestion handles pagination and checkpoint advancement. Bronze stores append-only raw events. dbt owns transformation logic and data tests. Airflow schedules and retries the workflow.
 
 ## Key design decisions
 
 | Decision | Why |
 |----------|-----|
-| Cursor + processed-ID checkpoints | Timestamp watermarks fail when APIs return out-of-order events |
+| Checkpoint + processed-ID tracking | Timestamp watermarks fail when APIs return out-of-order events |
 | PostgreSQL bronze landing | DB constraints enforce idempotency; matches warehouse patterns |
 | Quality gates before bronze | Block bad records at ingestion, not after they pollute raw history |
 | dbt for silver/gold | Declarative transforms with built-in tests and clearer ownership |
 
 ## Incremental ingestion with checkpoints
 
-The ingestion connector tracks cursor position in a **checkpoint store**. Two options:
+The ingestion connector tracks its read position in a **checkpoint store**. Two options:
 
 1. **File-based checkpoints** — lightweight for local development
 2. **PostgreSQL metadata tables** — durable for shared environments
@@ -72,7 +72,7 @@ python -m src.pipeline.ingestion \
 
 Key behaviors:
 
-- **Cursor advances only after successful page processing** — a timeout mid-page does not skip data
+- **Checkpoints advance only after successful page processing** — a timeout mid-page does not skip data
 - **Stable event IDs suppress duplicates** — re-delivered events are ignored via a processed-ID set
 - **Quality gates run before landing** — schema validation, required fields, and freshness checks block bad records from bronze
 

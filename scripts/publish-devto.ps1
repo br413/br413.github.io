@@ -64,15 +64,25 @@ if ($content -match '(?s)^---\r?\n(.*?)\r?\n---\r?\n(.*)$') {
     $bodyMarkdown = $content.Trim()
 }
 
+# Strip internal publish tooling references that should never appear on Dev.to
+$bodyMarkdown = ($bodyMarkdown -split "`r?`n" | Where-Object {
+    $_ -notmatch 'publish-devto\.ps1|DEVTO_API_KEY|DEVTO_COVER_IMAGE'
+}) -join "`n"
+
 # Portfolio cross-link is already in the article body; ensure it is present
 if ($bodyMarkdown -notmatch 'br413\.github\.io') {
+    $repoName = if ($Article -eq "contracts") {
+        "data-quality-observability"
+    } else {
+        "production-data-pipeline"
+    }
     $repoLink = if ($Article -eq "contracts") {
         "https://github.com/br413/data-quality-observability"
     } else {
         "https://github.com/br413/production-data-pipeline"
     }
     $bodyMarkdown = @"
-> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [$Article]($repoLink)
+> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [$repoName]($repoLink)
 
 $bodyMarkdown
 "@

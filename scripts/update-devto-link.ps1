@@ -17,7 +17,7 @@ $articles = @{
     }
     contracts = @{
         Title = "Data Quality Contracts in Production Pipelines (Without a Separate Platform Team)"
-        DraftPattern = '<h3><a href="[^"]*">Data Quality Contracts in Production Pipelines \(Without a Separate Platform Team\)</a>(?:\s*<span class="badge open">ready to publish</span>)?</h3>'
+        DraftPattern = '<h3><a href="[^"]*">Data Quality Contracts in Production Pipelines \(Without a Separate Platform Team\)</a>(?:\s*<span class="badge open">(?:ready to publish|draft)</span>)?</h3>'
     }
 }
 
@@ -29,9 +29,8 @@ $newLink = "<h3><a href=`"$ArticleUrl`">$($config.Title)</a></h3>"
 
 if ($html -match [regex]::Escape($config.Title)) {
     $html = $html -replace $config.DraftPattern, $newLink
-    if ($Article -eq "contracts") {
-        $html = $html -replace '<p class="writing-meta">Publish with.*?contracts.*?</p>\s*', ''
-    }
+    $html = $html -replace '<p class="writing-meta">.*?</p>\s*', ''
+    $html = $html -replace '\s*<span class="badge open">(?:ready to publish|draft)</span>', ''
     Set-Content $indexPath $html -NoNewline
     Write-Host "Updated index.html with Dev.to link ($Article): $ArticleUrl"
 } else {
