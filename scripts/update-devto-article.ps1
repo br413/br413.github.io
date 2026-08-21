@@ -5,7 +5,7 @@
 #   .\scripts\update-devto-article.ps1 -Article contracts -ArticleUrl "https://dev.to/..."
 
 param(
-    [ValidateSet("pipeline", "contracts", "retrospective")]
+    [ValidateSet("pipeline", "contracts", "retrospective", "versioning")]
     [string]$Article = "pipeline",
     [string]$ApiKey = $env:DEVTO_API_KEY,
     [string]$ArticleId,
@@ -18,13 +18,17 @@ if (-not $ApiKey) {
 }
 
 $articleFiles = @{
-    pipeline  = "building-production-data-pipeline.md"
-    contracts = "data-quality-contracts-production-pipelines.md"
+    pipeline       = "building-production-data-pipeline.md"
+    contracts      = "data-quality-contracts-production-pipelines.md"
+    retrospective  = "oss-upstream-retrospective.md"
+    versioning     = "contract-versioning-production-pipelines.md"
 }
 
 $defaultTags = @{
-    pipeline  = @("dataengineering", "python", "dbt", "airflow")
-    contracts = @("dataengineering", "python", "dbt", "dataquality")
+    pipeline       = @("dataengineering", "python", "dbt", "airflow")
+    contracts      = @("dataengineering", "python", "dbt", "dataquality")
+    retrospective  = @("dataengineering", "opensource", "career", "airflow")
+    versioning     = @("dataengineering", "python", "dataquality", "airflow")
 }
 
 $articlePath = Join-Path $PSScriptRoot "..\articles\$($articleFiles[$Article])"

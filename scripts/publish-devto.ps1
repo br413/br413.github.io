@@ -5,9 +5,10 @@
 #   .\scripts\publish-devto.ps1                          # article #1 (default)
 #   .\scripts\publish-devto.ps1 -Article contracts       # article #2
 #   .\scripts\publish-devto.ps1 -Article retrospective  # article #3
+#   .\scripts\publish-devto.ps1 -Article versioning   # article #4
 
 param(
-    [ValidateSet("pipeline", "contracts", "retrospective")]
+    [ValidateSet("pipeline", "contracts", "retrospective", "versioning")]
     [string]$Article = "pipeline",
     [string]$ApiKey = $env:DEVTO_API_KEY,
     [string]$CoverImage = $env:DEVTO_COVER_IMAGE
@@ -23,12 +24,14 @@ $articleFiles = @{
     pipeline       = "building-production-data-pipeline.md"
     contracts      = "data-quality-contracts-production-pipelines.md"
     retrospective  = "oss-upstream-retrospective.md"
+    versioning     = "contract-versioning-production-pipelines.md"
 }
 
 $defaultTags = @{
     pipeline       = @("dataengineering", "python", "dbt", "airflow")
     contracts      = @("dataengineering", "python", "dbt", "dataquality")
     retrospective  = @("dataengineering", "opensource", "career", "airflow")
+    versioning     = @("dataengineering", "python", "dataquality", "airflow")
 }
 
 $articleFile = $articleFiles[$Article]
@@ -77,11 +80,13 @@ if ($bodyMarkdown -notmatch 'br413\.github\.io') {
     $repoName = switch ($Article) {
         "contracts"     { "data-quality-observability" }
         "retrospective" { "br413" }
+        "versioning"    { "data-quality-observability" }
         default         { "production-data-pipeline" }
     }
     $repoLink = switch ($Article) {
         "contracts"     { "https://github.com/br413/data-quality-observability" }
         "retrospective" { "https://github.com/br413/br413" }
+        "versioning"    { "https://github.com/br413/data-quality-observability" }
         default         { "https://github.com/br413/production-data-pipeline" }
     }
     $bodyMarkdown = @"
