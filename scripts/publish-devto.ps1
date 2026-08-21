@@ -2,9 +2,12 @@
 # Usage:
 #   $env:DEVTO_API_KEY = "your-key"
 #   $env:DEVTO_COVER_IMAGE = "https://optional-cover-image.png"  # optional
-#   .\scripts\publish-devto.ps1
+#   .\scripts\publish-devto.ps1                          # article #1 (default)
+#   .\scripts\publish-devto.ps1 -Article contracts       # article #2
 
 param(
+    [ValidateSet("pipeline", "contracts")]
+    [string]$Article = "pipeline",
     [string]$ApiKey = $env:DEVTO_API_KEY,
     [string]$CoverImage = $env:DEVTO_COVER_IMAGE
 )
@@ -15,15 +18,31 @@ if (-not $ApiKey) {
     exit 1
 }
 
-$articlePath = Join-Path $PSScriptRoot "..\articles\building-production-data-pipeline.md"
+$articleFiles = @{
+    pipeline  = "building-production-data-pipeline.md"
+    contracts = "data-quality-contracts-production-pipelines.md"
+}
+
+$defaultTags = @{
+    pipeline  = @("dataengineering", "python", "dbt", "airflow")
+    contracts = @("dataengineering", "python", "dbt", "dataquality")
+}
+
+$articleFile = $articleFiles[$Article]
+$articlePath = Join-Path $PSScriptRoot "..\articles\$articleFile"
+if (-not (Test-Path $articlePath)) {
+    Write-Error "Article file not found: $articlePath"
+    exit 1
+}
+
 $content = Get-Content $articlePath -Raw
+$tags = $defaultTags[$Article]
 
 # Parse YAML front matter
-$title = "Building a Production Data Pipeline with Incremental Loading and dbt"
-$description = "How to design idempotent API ingestion, checkpoint recovery, medallion layering, and Airflow orchestration with explicit failure modes."
-$canonicalUrl = "https://github.com/br413/production-data-pipeline"
+$title = "Untitled"
+$description = ""
+$canonicalUrl = "https://github.com/br413"
 $series = "Cloud Data Platform Patterns"
-$tags = @("dataengineering", "python", "dbt", "airflow")
 
 if ($content -match '(?s)^---\r?\n(.*?)\r?\n---\r?\n(.*)$') {
     $frontMatter = $Matches[1]
@@ -34,14 +53,26 @@ if ($content -match '(?s)^---\r?\n(.*?)\r?\n---\r?\n(.*)$') {
     if ($frontMatter -match 'canonical_url:\s*(\S+)') { $canonicalUrl = $Matches[1] }
     if ($frontMatter -match 'series:\s*(.+)') { $series = $Matches[1].Trim() }
     if ($frontMatter -match 'cover_image:\s*(\S+)') { $CoverImage = $Matches[1] }
+    if ($frontMatter -match 'tags:\s*(.+)') {
+        $tagLine = $Matches[1].Trim()
+        $parsedTags = $tagLine -split '[,\s]+' | Where-Object { $_ -ne "" }
+        if ($parsedTags.Count -gt 0 -and $parsedTags.Count -le 4) {
+            $tags = @($parsedTags)
+        }
+    }
 } else {
     $bodyMarkdown = $content.Trim()
 }
 
 # Portfolio cross-link is already in the article body; ensure it is present
 if ($bodyMarkdown -notmatch 'br413\.github\.io') {
+    $repoLink = if ($Article -eq "contracts") {
+        "https://github.com/br413/data-quality-observability"
+    } else {
+        "https://github.com/br413/production-data-pipeline"
+    }
     $bodyMarkdown = @"
-> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [production-data-pipeline](https://github.com/br413/production-data-pipeline)
+> **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [$Article]($repoLink)
 
 $bodyMarkdown
 "@
@@ -65,6 +96,7 @@ $payload = @{ article = $articlePayload } | ConvertTo-Json -Depth 10 -Compress
 $payloadBytes = [System.Text.Encoding]::UTF8.GetBytes($payload)
 
 Write-Host "Publishing to Dev.to..."
+Write-Host "  Article: $Article ($articleFile)"
 Write-Host "  Title: $title"
 Write-Host "  Tags: $($tags -join ', ')"
 Write-Host "  Series: $series"
@@ -93,15 +125,16 @@ if (-not $response.url) {
 Write-Host ""
 Write-Host "Published: $($response.url)"
 Write-Host "Article ID: $($response.id)"
-$response | ConvertTo-Json -Depth 3 | Out-File (Join-Path $PSScriptRoot "..\articles\devto-response.json")
-Write-Host "Response saved to articles/devto-response.json"
+$responseFile = "devto-response-$Article.json"
+$response | ConvertTo-Json -Depth 3 | Out-File (Join-Path $PSScriptRoot "..\articles\$responseFile")
+Write-Host "Response saved to articles/$responseFile"
 
-& (Join-Path $PSScriptRoot "update-devto-link.ps1") -ArticleUrl $response.url
+& (Join-Path $PSScriptRoot "update-devto-link.ps1") -Article $Article -ArticleUrl $response.url
 
 Write-Host ""
 Write-Host "Next steps:"
 Write-Host "  1. Open the Dev.to editor and upload a cover image if you skipped DEVTO_COVER_IMAGE"
 Write-Host "  2. Pin the post on your Dev.to profile"
-Write-Host "  3. git add index.html articles/devto-response.json"
-Write-Host "  4. git commit -m 'docs: link published Dev.to pipeline article'"
+Write-Host "  3. git add index.html articles/$responseFile"
+Write-Host "  4. git commit -m 'docs: link published Dev.to $Article article'"
 Write-Host "  5. git push"

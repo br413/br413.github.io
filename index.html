@@ -142,7 +142,7 @@
           <span class="platform-label">Layer 1</span>
           <h3>Ingest &amp; transform</h3>
           <p><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></p>
-          <p class="platform-detail">Incremental API ingestion, PostgreSQL bronze, dbt silver/gold, Airflow orchestration, webhook alerts.</p>
+          <p class="platform-detail">Incremental API ingestion, PostgreSQL bronze, quarantine/DLQ for bad records, dbt silver/gold, Airflow orchestration, webhook alerts.</p>
         </div>
         <div class="platform-step">
           <span class="platform-label">Layer 2</span>
@@ -180,12 +180,12 @@
         <article class="project-card">
           <p class="project-tier">End-to-end pipeline</p>
           <h3><a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a></h3>
-          <p>Incremental API ingestion with PostgreSQL bronze landing, dbt silver/gold models, Airflow orchestration, and webhook alerts.</p>
-          <p class="project-signal"><strong>Senior signal:</strong> checkpoint recovery, idempotent loads, and dbt test gates that stop bad data before gold.</p>
+          <p>Incremental API ingestion with PostgreSQL bronze landing, per-record quarantine/DLQ, dbt silver/gold models, Airflow orchestration, and webhook alerts.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> checkpoint recovery, idempotent loads, quarantine table for poison-pill triage, and dbt test gates that stop bad data before gold.</p>
           <ul class="tags">
             <li>Python</li><li>dbt</li><li>Airflow</li><li>PostgreSQL</li><li>ETL</li>
           </ul>
-          <a class="project-link" href="https://github.com/br413/production-data-pipeline/releases/tag/v0.1.0">v0.1.0 release →</a>
+          <a class="project-link" href="https://github.com/br413/production-data-pipeline/releases/tag/v0.2.1">v0.2.1 release →</a>
         </article>
         <article class="project-card">
           <p class="project-tier">Quality layer · Contracts &amp; observability</p>
@@ -215,8 +215,20 @@
       <p class="section-intro">Production operations knowledge contributed upstream to orchestration and analytics tooling teams rely on daily.</p>
       <div class="oss-list">
         <article class="oss-item">
-          <h3><a href="https://github.com/apache/airflow/pull/70185">Airflow #70185</a> <span class="badge open">open</span></h3>
-          <p>Attach dbt Cloud job metadata to OpenLineage events — RUN-level lineage for dbt Cloud jobs in Airflow.</p>
+          <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9781">dbt docs #9781</a> <span class="badge open">open</span></h3>
+          <p>Fusion telemetry: use <code>duration_ms</code> for slowest-nodes ranking — fixes misleading span wall-clock examples.</p>
+        </article>
+        <article class="oss-item">
+          <h3><a href="https://github.com/meltano/meltano/pull/10253">Meltano #10253</a> <span class="badge open">open</span></h3>
+          <p><code>elt</code> vs <code>run</code> decision guide for replication workloads — closes maintainer-requested docs gap.</p>
+        </article>
+        <article class="oss-item">
+          <h3><a href="https://github.com/apache/airflow/pull/71158">Airflow #71158</a> <span class="badge open">approved</span></h3>
+          <p>Clarify metrics vs traces <code>otel_*</code> config options — approved, awaiting merge.</p>
+        </article>
+        <article class="oss-item">
+          <h3><a href="https://github.com/apache/airflow/pull/70171">Airflow #70171</a> <span class="badge open">open</span></h3>
+          <p>Surface dbt Cloud failure details in Airflow task logs for faster on-call triage.</p>
         </article>
         <article class="oss-item">
           <h3><a href="https://github.com/PrefectHQ/prefect/pull/22500">Prefect #22500</a> <span class="badge merged">merged</span></h3>
@@ -227,7 +239,7 @@
           <p>Clarify global concurrency limit setup for production Prefect deployments.</p>
         </article>
         <article class="oss-item">
-          <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9606">dbt docs #9606</a> <span class="badge open">open</span></h3>
+          <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9606">dbt docs #9606</a> <span class="badge merged">merged</span></h3>
           <p>Troubleshooting note for prefixed custom schema names — a deployment pitfall that breaks analytics environments silently.</p>
         </article>
       </div>
@@ -239,7 +251,12 @@
       <article class="oss-item">
         <h3><a href="https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c">Building a Production Data Pipeline with Incremental Loading and dbt</a></h3>
         <p>How to design idempotent ingestion, checkpoint stores, medallion-style transformations, and Airflow orchestration — with failure modes and scale trade-offs.</p>
-        </article>
+      </article>
+      <article class="oss-item">
+        <h3><a href="https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md">Data Quality Contracts in Production Pipelines (Without a Separate Platform Team)</a> <span class="badge open">ready to publish</span></h3>
+        <p>Row-level quarantine at ingestion, YAML dataset contracts at the quality boundary, alert routing, and CI enforcement — the follow-up to the incremental pipeline article.</p>
+        <p class="writing-meta">Publish with <code>.\scripts\publish-devto.ps1 -Article contracts</code> after setting <code>DEVTO_API_KEY</code>.</p>
+      </article>
     </section>
 
     <section id="contact" class="section contact">
