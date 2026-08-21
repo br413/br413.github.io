@@ -4,9 +4,10 @@
 #   $env:DEVTO_COVER_IMAGE = "https://optional-cover-image.png"  # optional
 #   .\scripts\publish-devto.ps1                          # article #1 (default)
 #   .\scripts\publish-devto.ps1 -Article contracts       # article #2
+#   .\scripts\publish-devto.ps1 -Article retrospective  # article #3
 
 param(
-    [ValidateSet("pipeline", "contracts")]
+    [ValidateSet("pipeline", "contracts", "retrospective")]
     [string]$Article = "pipeline",
     [string]$ApiKey = $env:DEVTO_API_KEY,
     [string]$CoverImage = $env:DEVTO_COVER_IMAGE
@@ -19,13 +20,15 @@ if (-not $ApiKey) {
 }
 
 $articleFiles = @{
-    pipeline  = "building-production-data-pipeline.md"
-    contracts = "data-quality-contracts-production-pipelines.md"
+    pipeline       = "building-production-data-pipeline.md"
+    contracts      = "data-quality-contracts-production-pipelines.md"
+    retrospective  = "oss-upstream-retrospective.md"
 }
 
 $defaultTags = @{
-    pipeline  = @("dataengineering", "python", "dbt", "airflow")
-    contracts = @("dataengineering", "python", "dbt", "dataquality")
+    pipeline       = @("dataengineering", "python", "dbt", "airflow")
+    contracts      = @("dataengineering", "python", "dbt", "dataquality")
+    retrospective  = @("dataengineering", "opensource", "career", "airflow")
 }
 
 $articleFile = $articleFiles[$Article]
@@ -71,15 +74,15 @@ $bodyMarkdown = ($bodyMarkdown -split "`r?`n" | Where-Object {
 
 # Portfolio cross-link is already in the article body; ensure it is present
 if ($bodyMarkdown -notmatch 'br413\.github\.io') {
-    $repoName = if ($Article -eq "contracts") {
-        "data-quality-observability"
-    } else {
-        "production-data-pipeline"
+    $repoName = switch ($Article) {
+        "contracts"     { "data-quality-observability" }
+        "retrospective" { "br413" }
+        default         { "production-data-pipeline" }
     }
-    $repoLink = if ($Article -eq "contracts") {
-        "https://github.com/br413/data-quality-observability"
-    } else {
-        "https://github.com/br413/production-data-pipeline"
+    $repoLink = switch ($Article) {
+        "contracts"     { "https://github.com/br413/data-quality-observability" }
+        "retrospective" { "https://github.com/br413/br413" }
+        default         { "https://github.com/br413/production-data-pipeline" }
     }
     $bodyMarkdown = @"
 > **Portfolio:** [br413.github.io](https://br413.github.io/) · **Source code:** [$repoName]($repoLink)

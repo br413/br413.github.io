@@ -4,7 +4,7 @@
 #   .\scripts\update-devto-link.ps1 -Article contracts -ArticleUrl "https://dev.to/..."
 
 param(
-    [ValidateSet("pipeline", "contracts")]
+    [ValidateSet("pipeline", "contracts", "retrospective")]
     [string]$Article = "pipeline",
     [Parameter(Mandatory = $true)]
     [string]$ArticleUrl
@@ -18,6 +18,10 @@ $articles = @{
     contracts = @{
         Title = "Data Quality Contracts in Production Pipelines (Without a Separate Platform Team)"
         DraftPattern = '<h3><a href="[^"]*">Data Quality Contracts in Production Pipelines \(Without a Separate Platform Team\)</a>(?:\s*<span class="badge open">(?:ready to publish|draft)</span>)?</h3>'
+    }
+    retrospective = @{
+        Title = "What I Learned Contributing to Prefect, dbt, and Airflow (An Honest OSS Retrospective)"
+        DraftPattern = '<h3><a href="[^"]*">What I Learned Contributing to Prefect, dbt, and Airflow \(An Honest OSS Retrospective\)</a>(?:\s*<span class="badge open">draft</span>)?</h3>'
     }
 }
 
