@@ -5,7 +5,7 @@
 #   .\scripts\update-devto-article.ps1 -Article contracts -ArticleUrl "https://dev.to/..."
 
 param(
-    [ValidateSet("pipeline", "contracts")]
+    [ValidateSet("pipeline", "contracts", "retrospective")]
     [string]$Article = "pipeline",
     [string]$ApiKey = $env:DEVTO_API_KEY,
     [string]$ArticleId,

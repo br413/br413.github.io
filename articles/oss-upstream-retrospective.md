@@ -81,7 +81,7 @@ Each layer answers a different reviewer question:
 | Outcome | Target | Status |
 |---------|--------|--------|
 | Upstream merges | 5+ | **2** — in progress |
-| Dev.to articles | 2 | **2** ✓ |
+| Dev.to articles | 3 | **3** ✓ |
 | Portfolio release | v0.2.1 + quarantine | ✓ |
 | Green contribution weeks | 10+ consecutive | On track with Mon/Wed/Fri rhythm |
 
