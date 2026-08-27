@@ -1,10 +1,10 @@
 # Update portfolio with published Dev.to article URL
 # Usage:
 #   .\scripts\update-devto-link.ps1 -Article pipeline -ArticleUrl "https://dev.to/..."
-#   .\scripts\update-devto-link.ps1 -Article contracts -ArticleUrl "https://dev.to/..."
+#   .\scripts\update-devto-link.ps1 -Article versioning -ArticleUrl "https://dev.to/..."
 
 param(
-    [ValidateSet("pipeline", "contracts", "retrospective")]
+    [ValidateSet("pipeline", "contracts", "retrospective", "versioning")]
     [string]$Article = "pipeline",
     [Parameter(Mandatory = $true)]
     [string]$ArticleUrl
@@ -22,6 +22,10 @@ $articles = @{
     retrospective = @{
         Title = "What I Learned Contributing to Prefect, dbt, and Airflow (An Honest OSS Retrospective)"
         DraftPattern = '<h3><a href="[^"]*">What I Learned Contributing to Prefect, dbt, and Airflow \(An Honest OSS Retrospective\)</a>(?:\s*<span class="badge open">draft</span>)?</h3>'
+    }
+    versioning = @{
+        Title = "Contract Versioning in Production Pipelines: Registry, CLI, and Run History"
+        DraftPattern = '<h3><a href="[^"]*">Contract Versioning in Production Pipelines: Registry, CLI, and Run History</a>(?:\s*<span class="badge open">draft</span>)?</h3>'
     }
 }
 
