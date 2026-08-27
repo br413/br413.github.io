@@ -27,16 +27,16 @@ My portfolio stack — [production-data-pipeline](https://github.com/br413/produ
 |----|---------|--------|---------------|
 | [Prefect #22500](https://github.com/PrefectHQ/prefect/pull/22500) | Prefect | Kubernetes readiness vs liveness probes | Small, verifiable ops detail; maintainer-aligned |
 | [dbt docs #9606](https://github.com/dbt-labs/docs.getdbt.com/pull/9606) | dbt docs | Prefixed custom schema troubleshooting | Deployment pitfall many teams hit silently |
+| [Airflow #71158](https://github.com/apache/airflow/pull/71158) | Airflow | Metrics vs traces `otel_*` config clarity | Docs clarity; merged after second reviewer |
 
 **Pattern:** documentation and operational clarity beat drive-by feature PRs for early upstream contributions. Both changes were easy to review, tied to real production confusion, and did not require deep codebase archaeology.
 
 ## What's still open (and what that teaches)
 
-As of mid-August 2026, four PRs remain in flight:
+As of late August 2026, four PRs remain in flight:
 
 | PR | Status | Lesson |
 |----|--------|--------|
-| [Airflow #71158](https://github.com/apache/airflow/pull/71158) | Approved — needs second reviewer | Merge policy matters as much as code quality on large projects |
 | [dbt docs #9781](https://github.com/dbt-labs/docs.getdbt.com/pull/9781) | Awaiting review | Issue-linked docs fixes still wait on maintainer bandwidth |
 | [Meltano #10253](https://github.com/meltano/meltano/pull/10253) | Awaiting review | Tie PRs to maintainer-requested issues ([#6289](https://github.com/meltano/meltano/issues/6289)) |
 | [Prefect #22533](https://github.com/PrefectHQ/prefect/pull/22533) | Changes requested → addressed | Automated review catches doc accuracy gaps; respond precisely |
@@ -76,12 +76,12 @@ Each layer answers a different reviewer question:
 - **Writing** — Can you explain trade-offs clearly?
 - **Upstream** — Can you improve tools other teams already depend on?
 
-## Honest scorecard (mid-plan)
+## Honest scorecard (90-day closeout)
 
 | Outcome | Target | Status |
 |---------|--------|--------|
-| Upstream merges | 5+ | **2** — in progress |
-| Dev.to articles | 3 | **3** ✓ |
+| Upstream merges | 5+ | **3** — in progress |
+| Dev.to articles | 3 | **4** ✓ |
 | Portfolio release | v0.2.1 + quarantine | ✓ |
 | Green contribution weeks | 10+ consecutive | On track with Mon/Wed/Fri rhythm |
 
@@ -107,6 +107,7 @@ Then repeat on a weekly cadence for ninety days.
 
 - [Building a Production Data Pipeline with Incremental Loading and dbt](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c)
 - [Data Quality Contracts in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3)
+- [Contract Versioning in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/contract-versioning-in-production-pipelines-registry-cli-and-run-history-13el)
 - [Portfolio site](https://br413.github.io/) · [GitHub profile](https://github.com/br413)
 
 If this helped, leave a comment — I am interested in how other data engineers approach upstream contributions without turning it into performance theater.
