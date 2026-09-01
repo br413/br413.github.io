@@ -4,7 +4,8 @@ published: false
 description: "How a git-native contract registry, semver pins, and versioned run history make dataset quality auditable — without a separate platform team or schema registry service."
 tags: dataengineering, python, dataquality, airflow
 series: Cloud Data Platform Patterns
-# Cover image: upload in Dev.to editor after publish
+canonical_url: https://github.com/br413
+cover_image: https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-contract-versioning.png
 ---
 
 Dataset contracts are easy to write once. They are hard to **operate** when you cannot answer: which version failed, who pinned it, and whether the registry agrees with the YAML on disk.

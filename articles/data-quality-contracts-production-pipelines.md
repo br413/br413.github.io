@@ -5,7 +5,7 @@ description: "How to layer row-level quarantine at ingestion and YAML dataset co
 tags: dataengineering, python, dbt, dataquality
 series: Cloud Data Platform Patterns
 canonical_url: https://github.com/br413/data-quality-observability
-# Cover image: upload in the Dev.to editor after publish
+cover_image: https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-data-quality-contracts.png
 ---
 
 Production pipelines fail in two ways: loudly at 3 a.m., or quietly in the CEO's dashboard. **Data quality contracts** give you a third path — catch drift at the boundary, persist evidence, and route bad rows before they poison silver models.
