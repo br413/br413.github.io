@@ -5,18 +5,18 @@
   <meta name="google-site-verification" content="tmuS6i3hrTbfIXr8W78PZeYxef0q2Nk73dkIH6csWcY">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senior Data Engineer &amp; Data Architect | br413</title>
-  <meta name="description" content="Senior Data Engineer building contract-driven data platforms where pipelines fail loudly, not silently — incremental ETL, medallion lakehouse architecture, and observability with Python, dbt, Airflow, and Terraform.">
+  <meta name="description" content="Senior Data Engineer and Data Architect focused on reliable pipelines, lakehouse design, and long-term platform maintenance. Python, SQL, Airflow, dbt, Terraform; public demos and reviewed upstream work.">
   <meta name="keywords" content="data engineer, data architect, cloud data platform, lakehouse, ETL pipeline, dbt, Airflow, Terraform, AWS, Snowflake, Databricks">
   <meta name="author" content="br413">
   <link rel="canonical" href="https://br413.github.io/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://br413.github.io/sitemap.xml">
   <meta property="og:title" content="Senior Data Engineer &amp; Data Architect | br413">
-  <meta property="og:description" content="Production data platforms with incremental pipelines, contract-driven quality checks, and lakehouse patterns that survive failure and schema drift.">
+  <meta property="og:description" content="Reliable pipelines, data quality, and platform maintenance — public reference implementations and reviewed upstream work.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://br413.github.io/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Senior Data Engineer &amp; Data Architect | br413">
-  <meta name="twitter:description" content="Production data platforms with incremental pipelines, contract-driven quality, and lakehouse patterns built for operational scale.">
+  <meta name="twitter:description" content="Reliable pipelines, data quality, and platform maintenance — public reference implementations and reviewed upstream work.">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -42,7 +42,7 @@
         <li><a href="#platform">Platform</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#oss">Open Source</a></li>
-        <li><a href="#history">Work history</a></li>
+        <li><a href="#maintenance">Maintenance</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -52,21 +52,20 @@
   <main>
     <section class="hero" id="top">
       <p class="eyebrow">Senior Data Engineer &amp; Data Architect</p>
-      <h1>Data platforms where pipelines fail loudly — not silently</h1>
+      <h1>Reliable pipelines.<br>Maintainable data platforms.</h1>
       <p class="lead">
-        I build production-grade systems that survive partial failures, schema drift, and operational scale:
-        incremental ingestion with checkpoint recovery, contract-driven data quality, medallion lakehouse
-        patterns, and CI-validated platform automation on AWS, Azure, Databricks, and Snowflake.
+        I build with Python, SQL, Airflow, dbt, and Terraform, focusing on interrupted ingestion,
+        duplicate records, schema drift, and operational handoffs. Explore public reference implementations
+        and reviewed upstream contributions for senior data engineering and long-term platform maintenance.
       </p>
       <ul class="hero-highlights">
-        <li><strong>End-to-end ownership</strong> — ingestion, transformation, orchestration, and observability</li>
-        <li><strong>Operational maturity</strong> — idempotent loads, run history, alerts, and documented recovery</li>
-        <li><strong>Platform thinking</strong> — IaC, governance, lineage, and tests that catch regressions before production</li>
+        <li><strong>Reviewed implementation:</strong> <a href="https://github.com/apache/airflow/pull/70171">Airflow #70171</a> — dbt Cloud failure logging and unit tests; merged September 14, 2026</li>
+        <li><strong>Runnable evidence:</strong> <a href="https://github.com/br413/lakehouse-platform-starter/blob/main/docs/QUICKSTART.md">lakehouse quick start</a>, design decisions, and backfill runbook</li>
       </ul>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://github.com/br413/lakehouse-platform-starter">View flagship project</a>
         <a class="btn btn-secondary" href="https://br413.github.io/lakehouse-platform-starter/">dbt docs (live)</a>
-        <a class="btn btn-secondary" href="#platform">How I design platforms</a>
+        <a class="btn btn-secondary" href="mailto:br198064@gmail.com">Email: br198064@gmail.com</a>
       </div>
     </section>
 
@@ -87,9 +86,10 @@
         understandable for the team that inherits them.
       </p>
       <p>
-        My open-source work spans connected layers — a **runnable lakehouse platform** (Iceberg, Trino, Cosmos, OpenLineage),
-        a production ETL pipeline with Airflow and dbt, contract-driven quality observability, and platform IaC blueprints.
-        Together they show how I think about the full data lifecycle, not isolated scripts.
+        My portfolio connects a <strong>runnable lakehouse reference</strong> (Iceberg, Trino, Cosmos, OpenLineage),
+        an ETL reference pipeline with Airflow and dbt, CSV data contract checks, and platform IaC blueprints.
+        These are demonstrations, not evidence of client deployments, production scale, or customer outcomes.
+        Prior employer work lived in private GitLab/Azure DevOps; this portfolio is not a full employment history.
       </p>
       <div class="signals-grid">
         <article class="signal-card">
@@ -102,7 +102,7 @@
         </article>
         <article class="signal-card">
           <h3>Operational proof</h3>
-          <p>pytest coverage, GitHub Actions CI, smoke tests, alert routing, and documented trade-offs in every flagship repo.</p>
+          <p>Tests, GitHub Actions CI, reproducible demos, and documented trade-offs provide review paths for the portfolio.</p>
         </article>
       </div>
       <div class="skills-grid">
@@ -148,7 +148,7 @@
           <span class="platform-label">Layer 2</span>
           <h3>Quality &amp; observability</h3>
           <p><a href="https://github.com/br413/data-quality-observability">data-quality-observability</a></p>
-          <p class="platform-detail">YAML data contracts, schema/freshness/RI checks, persisted run history, alert routing.</p>
+          <p class="platform-detail">CSV data contracts, deterministic demo, offline HTML/JSON reports, SQLite run history.</p>
         </div>
         <div class="platform-step">
           <span class="platform-label">Layer 3</span>
@@ -165,7 +165,7 @@
 
     <section id="projects" class="section">
       <h2>Data engineering portfolio</h2>
-      <p class="section-intro">Production-style open-source projects with architecture docs, ADRs, tests, CI, and operations runbooks.</p>
+      <p class="section-intro">Public reference implementations with documented decisions and reproducible demos. The pipeline demo does not include a production Airflow deployment; the AWS blueprint validates Terraform without applying it to a live account.</p>
       <div class="project-grid">
         <article class="project-card featured">
           <p class="project-tier">Flagship · Runnable lakehouse platform</p>
@@ -190,7 +190,7 @@
         <article class="project-card">
           <p class="project-tier">Quality layer · Contracts &amp; observability</p>
           <h3><a href="https://github.com/br413/data-quality-observability">data-quality-observability</a></h3>
-          <p>YAML data contracts with schema, freshness, and referential-integrity checks, persisted history, and alert routing.</p>
+          <p>A local Python CLI for CSV contracts, schema, freshness, and referential-integrity checks, SQLite history, and offline HTML/JSON reports.</p>
           <p class="project-signal"><strong>Senior signal:</strong> contract-driven checks with run history — quality regressions are auditable, not one-off surprises.</p>
           <ul class="tags">
             <li>Data contracts</li><li>Observability</li><li>Airflow</li><li>Python</li>
@@ -201,7 +201,7 @@
           <p class="project-tier">Platform layer · Lakehouse blueprint</p>
           <h3><a href="https://github.com/br413/cloud-lakehouse-blueprint">cloud-lakehouse-blueprint</a></h3>
           <p>Medallion architecture manifests, Terraform IaC, IAM governance, lineage graph, and CI validation with <code>validate --json</code>.</p>
-          <p class="project-signal"><strong>Senior signal:</strong> platform decisions encoded in IaC, manifests, and CI — not slide-deck architecture.</p>
+          <p class="project-signal"><strong>Senior signal:</strong> platform decisions encoded in IaC, manifests, and CI; Terraform is validated without a live AWS deployment.</p>
           <ul class="tags">
             <li>Lakehouse</li><li>Terraform</li><li>AWS</li><li>Data architecture</li>
           </ul>
@@ -212,14 +212,18 @@
 
     <section id="oss" class="section">
       <h2>Open-source contributions</h2>
-      <p class="section-intro">Production operations knowledge contributed upstream to orchestration and analytics tooling teams rely on daily.</p>
+      <p class="section-intro">Reviewed implementation and documentation in upstream orchestration and analytics tools. Statuses verified September 30, 2026; dbt docs #9961 remains open.</p>
       <div class="oss-list">
+        <article class="oss-item">
+          <h3><a href="https://github.com/apache/airflow/pull/70171">Airflow #70171</a> <span class="badge merged">merged September 14, 2026</span></h3>
+          <p>Implemented dbt Cloud failure details in task logs across the hook, operator, and sensor, with unit tests and maintainer review.</p>
+        </article>
         <article class="oss-item">
           <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9781">dbt docs #9781</a> <span class="badge merged">merged</span></h3>
           <p>Fusion telemetry: use <code>duration_ms</code> for slowest-nodes ranking — fixes misleading span wall-clock examples.</p>
         </article>
         <article class="oss-item">
-          <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9960">dbt docs #9960</a> <span class="badge open">open</span></h3>
+          <h3><a href="https://github.com/dbt-labs/docs.getdbt.com/pull/9960">dbt docs #9960</a> <span class="badge merged">merged September 29, 2026</span></h3>
           <p>Macro argument types: document <code>bool</code> (not <code>boolean</code>) for <code>validate_macro_args</code>.</p>
         </article>
         <article class="oss-item">
@@ -234,10 +238,7 @@
           <h3><a href="https://github.com/apache/airflow/pull/71158">Airflow #71158</a> <span class="badge merged">merged</span></h3>
           <p>Clarify metrics vs traces <code>otel_*</code> config options — merged upstream.</p>
         </article>
-        <article class="oss-item">
-          <h3><a href="https://github.com/apache/airflow/pull/70171">Airflow #70171</a> <span class="badge open">open</span></h3>
-          <p>Surface dbt Cloud failure details in Airflow task logs for faster on-call triage. CI green after rebase.</p>
-        </article>
+
         <article class="oss-item">
           <h3><a href="https://github.com/PrefectHQ/prefect/pull/22500">Prefect #22500</a> <span class="badge merged">merged</span></h3>
           <p>Kubernetes readiness vs liveness probes for workflow orchestrators — the kind of ops detail that prevents false-positive deploy rollbacks.</p>
@@ -254,45 +255,10 @@
     </section>
 
     <section id="history" class="section">
-      <h2>Public work history</h2>
-      <p class="section-intro">Curated milestones since June 2026 — portfolio releases, upstream merges, and technical writing. <a href="https://github.com/br413/br413/blob/main/docs/work-history.md">Full timeline on GitHub</a>.</p>
-      <div class="history-stats">
-        <article class="history-stat">
-          <p class="history-stat-value">8</p>
-          <p class="history-stat-label">Upstream merges</p>
-        </article>
-        <article class="history-stat">
-          <p class="history-stat-value">4</p>
-          <p class="history-stat-label">Dev.to articles</p>
-        </article>
-        <article class="history-stat">
-          <p class="history-stat-value">v1.0.0</p>
-          <p class="history-stat-label">Lakehouse platform</p>
-        </article>
-        <article class="history-stat">
-          <p class="history-stat-value">v0.3.0</p>
-          <p class="history-stat-label">Pipeline release</p>
-        </article>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item">
-          <p class="timeline-date">Sep 2026</p>
-          <p><a href="https://github.com/PrefectHQ/prefect/pull/22533">Prefect #22533</a> merged · lakehouse clone→demo quickstart · profile at <strong>8 upstream merges</strong>.</p>
-        </article>
-        <article class="timeline-item">
-          <p class="timeline-date">Aug 2026</p>
-          <p><a href="https://github.com/br413/production-data-pipeline/releases/tag/v0.3.0">pipeline v0.3.0</a> quarantine metrics · <a href="https://github.com/br413/br413.github.io/blob/main/articles/contract-versioning-production-pipelines.md">article #4</a> · dbt + Meltano merges · dqo wired into Airflow DAG.</p>
-        </article>
-        <article class="timeline-item">
-          <p class="timeline-date">Jul 2026</p>
-          <p><a href="https://github.com/br413/lakehouse-platform-starter/releases/tag/v1.0.0">lakehouse-platform-starter v1.0.0</a> · articles #1–#3 · Prefect + dbt docs merges · portfolio site live.</p>
-        </article>
-        <article class="timeline-item">
-          <p class="timeline-date">Jun 2026</p>
-          <p>Public portfolio work begins · <a href="https://github.com/br413/production-data-pipeline/releases/tag/v0.1.0">pipeline v0.1.0</a> · 90-day contribution plan started.</p>
-        </article>
-      </div>
-      <p class="history-footer"><a href="https://github.com/br413?tab=overview">View GitHub activity graph →</a></p>
+      <h2>Public contribution record</h2>
+      <p>Portfolio releases, upstream work, and technical writing since June 2026 are documented in the
+        <a href="https://github.com/br413/br413/blob/main/docs/work-history.md">verified contribution record</a>.
+        Planning, daily reminders, and indexing tasks live in the supporting documents.</p>
     </section>
 
     <section id="writing" class="section">
@@ -310,7 +276,7 @@
       </article>
       <article class="oss-item">
         <h3><a href="https://github.com/br413/br413.github.io/blob/main/articles/oss-upstream-retrospective.md">What I Learned Contributing to Prefect, dbt, and Airflow (An Honest OSS Retrospective)</a></h3>
-        <p>Two merges, four open PRs, and ninety days of building in public — what actually worked for upstream contributions.</p>
+        <p>Lessons from maintainer review, implementation changes, documentation fixes, and keeping contribution status accurate.</p>
         <p class="writing-repos">Related repos: <a href="https://github.com/br413/br413">br413</a> · <a href="https://github.com/br413/production-data-pipeline">production-data-pipeline</a> · <a href="https://github.com/br413/data-quality-observability">data-quality-observability</a> · <a href="https://github.com/br413/cloud-lakehouse-blueprint">cloud-lakehouse-blueprint</a></p>
       </article>
       <article class="oss-item">
@@ -320,9 +286,20 @@
       </article>
     </section>
 
+    <section id="maintenance" class="section">
+      <h2>Data platform maintenance</h2>
+      <p>For teams seeking ongoing ownership, the maintenance work I can discuss includes:</p>
+      <ul>
+        <li><strong>Pipeline reliability:</strong> failed-run investigation, ingestion and dbt repairs, recovery, backfills, and recurring-failure fixes.</li>
+        <li><strong>Quality and observability:</strong> data contract and schema checks, run-history review, and actionable alerts.</li>
+        <li><strong>Safe changes and handoffs:</strong> dependency upgrades, Terraform reviews, CI checks, runbooks, and current architecture decisions.</li>
+      </ul>
+      <p>We begin by agreeing on the platform, ownership boundaries, backlog, and support expectations. Scope and response arrangements are agreed per engagement.</p>
+    </section>
+
     <section id="contact" class="section contact">
       <h2>Collaboration</h2>
-      <p>Open to senior data engineering roles, data platform architecture discussions, and technical collaboration with engineering teams building analytics infrastructure, quality tooling, or lakehouse platforms.</p>
+      <p>For senior data engineering roles or long-term platform maintenance inquiries, email <a href="mailto:br198064@gmail.com">br198064@gmail.com</a> with the platform and the work you need help with.</p>
       <ul class="contact-links">
         <li><a href="https://t.me/CtrlAltBomb">Telegram: @CtrlAltBomb</a></li>
         <li><a href="mailto:br198064@gmail.com">Gmail: br198064@gmail.com</a></li>
