@@ -54,7 +54,7 @@ As of September 2026, two PRs remain in flight:
 
 1. **Fewer open PRs at once** — after ~4 in flight, review bandwidth becomes the bottleneck, not ideas
 2. **Rebase early** — Airflow moves fast; waiting weeks breaks CI on unrelated upstream changes
-3. **Portfolio first, then upstream narrative** — shipping quarantine/DLQ in [production-data-pipeline v0.2.1](https://github.com/br413/production-data-pipeline/releases/tag/v0.2.1) made the [data quality contracts article](https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3) credible
+3. **Portfolio first, then upstream narrative** — shipping quarantine/DLQ in [production-data-pipeline v0.2.1](https://github.com/br413/production-data-pipeline/releases/tag/v0.2.1) made the [data quality contracts article](https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md) credible
 4. **Close gracefully** — a withdrawn or closed PR with a clear maintainer reason is better than a stale open one
 5. **Don't chase fork CI noise** — docs-only PRs can fail flaky Playwright shards on your fork while upstream path-filtered checks are green
 
@@ -112,9 +112,9 @@ Then repeat on a weekly cadence for ninety days.
 
 **Related writing**
 
-- [Building a Production Data Pipeline with Incremental Loading and dbt](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c)
-- [Data Quality Contracts in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3)
-- [Contract Versioning in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/contract-versioning-in-production-pipelines-registry-cli-and-run-history-13el)
+- [Building a Production Data Pipeline with Incremental Loading and dbt](https://github.com/br413/br413.github.io/blob/main/articles/building-production-data-pipeline.md)
+- [Data Quality Contracts in Production Pipelines](https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md)
+- [Contract Versioning in Production Pipelines](https://github.com/br413/br413.github.io/blob/main/articles/contract-versioning-production-pipelines.md)
 - [Portfolio site](https://br413.github.io/) · [GitHub profile](https://github.com/br413)
 
 If this helped, leave a comment — I am interested in how other data engineers approach upstream contributions without turning it into performance theater.

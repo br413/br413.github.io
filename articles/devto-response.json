@@ -1,10 +1,10 @@
 {
-  "type_of": "article",
   "title": "Building a Production Data Pipeline with Incremental Loading and dbt",
-  "description": "How to design idempotent API ingestion, checkpoint recovery, medallion layering, and Airflow orchestration with explicit failure modes.",
-  "slug": "building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c",
-  "path": "/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c",
-  "url": "https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c",
   "canonical_url": "https://github.com/br413/production-data-pipeline",
-  "tags": ["dataengineering", "python", "dbt", "airflow"]
+  "tags": [
+    "dataengineering",
+    "python",
+    "dbt",
+    "airflow"
+  ]
 }

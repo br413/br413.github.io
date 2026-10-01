@@ -31,4 +31,4 @@ foreach ($item in $covers) {
 
 Write-Host ""
 Write-Host "Done. Verify on Dev.to:"
-Write-Host "  https://dev.to/bobby_ray_581732c715283b2/what-i-learned-contributing-to-prefect-dbt-and-airflow-an-honest-oss-retrospective-1ki8"
+Write-Host "  https://dev.to/dashboard"

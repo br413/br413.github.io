@@ -212,7 +212,7 @@ You do not need a dedicated data quality platform team to start:
 
 ## How this connects to article #1
 
-My first Dev.to article covered [incremental ingestion, checkpoints, and medallion layering with dbt](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c). That pipeline intentionally ended with "at scale I would add a dead-letter queue and a separate quality layer."
+My first Dev.to article covered [incremental ingestion, checkpoints, and medallion layering with dbt](https://github.com/br413/br413.github.io/blob/main/articles/building-production-data-pipeline.md). That pipeline intentionally ended with "at scale I would add a dead-letter queue and a separate quality layer."
 
 This article is the follow-through: **quarantine at ingestion** (v0.2.1) and **contracts at the quality boundary** (data-quality-observability), wired together as a production-style stack.
 

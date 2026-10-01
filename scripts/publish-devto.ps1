@@ -144,10 +144,11 @@ Write-Host ""
 Write-Host "Published: $($response.url)"
 Write-Host "Article ID: $($response.id)"
 $responseFile = "devto-response-$Article.json"
-$response | ConvertTo-Json -Depth 3 | Out-File (Join-Path $PSScriptRoot "..\articles\$responseFile")
+$response | Select-Object id, title, canonical_url, tags | ConvertTo-Json -Depth 3 | Out-File (Join-Path $PSScriptRoot "..\articles\$responseFile")
 Write-Host "Response saved to articles/$responseFile"
 
-& (Join-Path $PSScriptRoot "update-devto-link.ps1") -Article $Article -ArticleUrl $response.url
+$portfolioArticleUrl = "https://github.com/br413/br413.github.io/blob/main/articles/$articleFile"
+& (Join-Path $PSScriptRoot "update-devto-link.ps1") -Article $Article -ArticleUrl $portfolioArticleUrl
 
 Write-Host ""
 Write-Host "Next steps:"

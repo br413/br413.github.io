@@ -9,12 +9,14 @@ GSC requires a signed-in Google account with access to the property. The site is
 - https://br413.github.io/
 - https://br413.github.io/lakehouse-platform-starter/
 
-### Dev.to articles (indexed under dev.to — submit from your Dev.to dashboard or wait for crawl)
+## Article sources
 
-- https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c
-- https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3
-- https://dev.to/bobby_ray_581732c715283b2/what-i-learned-contributing-to-prefect-dbt-and-airflow-an-honest-oss-retrospective-1ki8
-- https://dev.to/bobby_ray_581732c715283b2/contract-versioning-in-production-pipelines-registry-cli-and-run-history-13el
+The portfolio links to these GitHub copies. Only submit URLs under the verified portfolio property above in Search Console.
+
+- https://github.com/br413/br413.github.io/blob/main/articles/building-production-data-pipeline.md
+- https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md
+- https://github.com/br413/br413.github.io/blob/main/articles/oss-upstream-retrospective.md
+- https://github.com/br413/br413.github.io/blob/main/articles/contract-versioning-production-pipelines.md
 
 ## Steps
 

@@ -10,7 +10,7 @@ cover_image: https://raw.githubusercontent.com/br413/br413.github.io/main/assets
 
 Dataset contracts are easy to write once. They are hard to **operate** when you cannot answer: which version failed, who pinned it, and whether the registry agrees with the YAML on disk.
 
-This article closes the loop on [Data Quality Contracts in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3) — registry → CLI resolution → Airflow scheduling → versioned run history, with ingestion quarantine in [production-data-pipeline](https://github.com/br413/production-data-pipeline).
+This article closes the loop on [Data Quality Contracts in Production Pipelines](https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md) — registry → CLI resolution → Airflow scheduling → versioned run history, with ingestion quarantine in [production-data-pipeline](https://github.com/br413/production-data-pipeline).
 
 > **Portfolio:** [br413.github.io](https://br413.github.io/) · **Quality layer:** [data-quality-observability](https://github.com/br413/data-quality-observability) · **Ingestion:** [production-data-pipeline v0.2.1](https://github.com/br413/production-data-pipeline/releases/tag/v0.2.1)
 
@@ -133,8 +133,8 @@ Each layer answers a different reviewer question:
 
 ## Related writing
 
-- [Building a Production Data Pipeline with Incremental Loading and dbt](https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c)
-- [Data Quality Contracts in Production Pipelines](https://dev.to/bobby_ray_581732c715283b2/data-quality-contracts-in-production-pipelines-without-a-separate-platform-team-f3)
+- [Building a Production Data Pipeline with Incremental Loading and dbt](https://github.com/br413/br413.github.io/blob/main/articles/building-production-data-pipeline.md)
+- [Data Quality Contracts in Production Pipelines](https://github.com/br413/br413.github.io/blob/main/articles/data-quality-contracts-production-pipelines.md)
 - [Portfolio site](https://br413.github.io/) · [GitHub profile](https://github.com/br413)
 
 If you operate contract versioning differently — Glue Registry, Data Contract CLI, or dbt exposures only — I am interested in how you draw the boundary between row-level and dataset-level gates.

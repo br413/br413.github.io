@@ -52,4 +52,4 @@ The script will:
 >
 > This follow-up covers row-level quarantine at ingestion (production-data-pipeline v0.2.1) and YAML dataset contracts at the quality boundary (data-quality-observability).
 >
-> Part 1: https://dev.to/bobby_ray_581732c715283b2/building-a-production-data-pipeline-with-incremental-loading-and-dbt-2e2c
+> Part 1: https://github.com/br413/br413.github.io/blob/main/articles/building-production-data-pipeline.md
