@@ -1,34 +1,27 @@
-# br413.github.io
+# Hi, I'm Brian 👑
 
-Personal portfolio site for **Senior Data Engineer & Data Architect** work.
+**Software Engineer** — Windows Programming · Full-Stack Development · AI Engineering
 
-Live at: **https://br413.github.io**
+> "Every conversation starts with a simple hello." — Don't hesitate to reach out.
 
-## Contents
+## Deployment
 
-- `index.html` — portfolio landing page (SEO-optimized)
-- `styles.css` — site styles
-- `articles/` — Dev.to article drafts and writing source files
-- `robots.txt`, `sitemap.xml` — search engine indexing
+This repository contains the Next.js source and GitHub Pages deployment for [https://br413.github.io/](https://br413.github.io/).
 
-## Dev.to article
+Pushes to `main` automatically redeploy the site through [.github/workflows/pages.yml](.github/workflows/pages.yml). The workflow installs dependencies, lints, builds with Node.js 24, copies the retained `articles/` and `assets/` directories into `out/`, and deploys that artifact. Both deployment and local development use the root path; no `NEXT_PUBLIC_BASE_PATH` override is needed.
 
-Draft article for publishing:
+To run locally:
 
 ```bash
-articles/building-production-data-pipeline.md
+npm ci
+npm run dev
 ```
 
-Copy the contents into [Dev.to new post](https://dev.to/new) or use the Dev.to API. Set `published: true` in front matter when ready.
+The active pages and metadata live in `app/`, with shared site settings in `lib/constants.ts`. The earlier root `index.html`, `styles.css`, `robots.txt`, and `sitemap.xml` remain in this repository for reference. The workflow publishes the generated Next.js homepage, robots file, and sitemap instead of those legacy files.
 
-## Local preview
+Article sources, cover assets, documentation, and publishing scripts are preserved. The scripts that edit `index.html` affect the retained legacy homepage; they do not update the Next.js site. See [SEO setup](docs/SEO-SETUP.md) and [Search Console indexing](docs/GSC-INDEXING.md) for the current workflow.
 
-Open `index.html` in a browser, or:
-
-```bash
-python -m http.server 8080
-# visit http://localhost:8080
-```
+[portfolio_br](https://github.com/br413/portfolio_br) remains the earlier, independently deployed [project-site copy](https://br413.github.io/portfolio_br/). Changes in this repository do not automatically update that copy.
 
 ## License
 

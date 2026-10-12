@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#26200f"/>
+      <stop offset="55%" stop-color="#1a160c"/>
+      <stop offset="100%" stop-color="#121009"/>
+    </radialGradient>
+    <clipPath id="frame"><rect width="800" height="800"/></clipPath>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bg)"/>
+
+  <!-- ambient particles -->
+  <g fill="#e8a33d">
+    <circle cx="120" cy="150" r="3" opacity="0.5"/>
+    <circle cx="680" cy="110" r="2.5" opacity="0.4"/>
+    <circle cx="720" cy="330" r="3" opacity="0.45"/>
+    <circle cx="90" cy="420" r="2" opacity="0.35"/>
+    <circle cx="655" cy="620" r="2.5" opacity="0.3"/>
+    <circle cx="140" cy="640" r="2" opacity="0.3"/>
+    <circle cx="600" cy="210" r="1.6" opacity="0.5"/>
+    <circle cx="185" cy="255" r="1.6" opacity="0.45"/>
+  </g>
+  <g stroke="#e8a33d" stroke-width="1" opacity="0.18">
+    <path d="M120,150 L185,255 L90,420" fill="none"/>
+    <path d="M680,110 L600,210 L720,330" fill="none"/>
+  </g>
+
+  <!-- thin brand ring -->
+  <circle cx="400" cy="400" r="372" fill="none" stroke="#e8a33d" stroke-width="2" opacity="0.22"/>
+
+  <g clip-path="url(#frame)">
+    <!-- torso / hoodie -->
+    <path d="M195,800 L195,742 Q195,660 292,640 L508,640 Q605,660 605,742 L605,800 Z" fill="#2b2416"/>
+    <!-- hoodie inner collar -->
+    <path d="M330,640 Q400,700 470,640 L470,662 Q400,724 330,662 Z" fill="#1c1810"/>
+    <!-- drawstrings -->
+    <path d="M362,668 L358,724" stroke="#e8a33d" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M438,668 L442,724" stroke="#e8a33d" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+    <!-- neck -->
+    <path d="M362,540 L438,540 L438,650 Q400,672 362,650 Z" fill="#d9a273"/>
+
+    <!-- ears -->
+    <ellipse cx="257" cy="460" rx="27" ry="34" fill="#eebf94"/>
+    <ellipse cx="543" cy="460" rx="27" ry="34" fill="#eebf94"/>
+
+    <!-- hair back layer -->
+    <ellipse cx="400" cy="420" rx="150" ry="164" fill="#201808"/>
+    <!-- face -->
+    <ellipse cx="400" cy="452" rx="140" ry="152" fill="#eebf94"/>
+    <!-- fringe: rounded bowl sweep, no spikes -->
+    <path d="M262,438 C260,320 330,255 400,255 C470,255 540,320 538,438
+             C520,380 480,350 440,350 C420,350 415,360 400,360
+             C385,360 380,350 360,350 C320,350 280,380 262,438 Z" fill="#201808"/>
+
+    <!-- brows -->
+    <path d="M312,420 Q338,408 366,416" stroke="#201808" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <path d="M434,416 Q462,408 488,420" stroke="#201808" stroke-width="11" stroke-linecap="round" fill="none"/>
+
+    <!-- glasses: gold rims -->
+    <g stroke="#e8a33d" fill="rgba(255,255,255,0.045)">
+      <circle cx="341" cy="472" r="50" stroke-width="7"/>
+      <circle cx="459" cy="472" r="50" stroke-width="7"/>
+    </g>
+    <path d="M391,470 Q400,462 409,470" stroke="#e8a33d" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M291,468 L262,456" stroke="#e8a33d" stroke-width="6" stroke-linecap="round"/>
+    <path d="M509,468 L538,456" stroke="#e8a33d" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <circle cx="341" cy="474" r="9" fill="#241c12"/>
+    <circle cx="459" cy="474" r="9" fill="#241c12"/>
+    <circle cx="344" cy="470" r="2.6" fill="#f6ead8"/>
+    <circle cx="462" cy="470" r="2.6" fill="#f6ead8"/>
+
+    <!-- nose -->
+    <path d="M400,505 Q394,530 402,536" stroke="#d9a273" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+    <!-- smile -->
+    <path d="M368,566 Q400,588 432,566" stroke="#b3765a" stroke-width="9" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>
