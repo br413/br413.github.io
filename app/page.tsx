@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, ArrowUpRight, Sparkles, Star, Zap } from 'lucide-react'
 import { Orb } from '@/components/orb'
 import { Portrait } from '@/components/portrait'
 import { Reveal, MountReveal, Stagger, StaggerItem, Counter, Marquee } from '@/components/fx'
 import { FeaturedCard, type FeaturedProject } from '@/components/featured-card'
 import { experiences, projectHighlights, skillCategories, testimonials } from '@/lib/data'
+import { BASE_PATH, SITE_CONFIG } from '@/lib/constants'
 
 const featured: FeaturedProject[] = [
   { title: 'Supakon', blurb: 'AI expert marketplace where four models — LLaMA, Mistral, GPT, Gemini — score every candidate in parallel, with RAG matching and hybrid fraud detection.', year: '2024', href: 'https://supakon.com', image: '/projects/supakon.jpg', tags: ['LangChain', 'RAG', 'Pinecone', 'Next.js'] },
@@ -42,67 +44,81 @@ export default function Home() {
         <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
         <Orb />
         <div className="hero-fade pointer-events-none absolute inset-0" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-24 sm:px-8 lg:px-10">
-          <MountReveal>
-            <div className="flex flex-wrap items-center gap-3">
-              <Portrait size={48} priority />
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur">
-                <i className="status-dot" />
-                AVAILABLE FOR NEW OPPORTUNITIES
-              </span>
-              <span className="hidden items-center gap-2 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur sm:inline-flex">
-                <Star className="h-3 w-3 fill-accent text-accent" />
-                10+ YEARS · {projectHighlights.length} NAMED PRODUCTS
-              </span>
-            </div>
-          </MountReveal>
-          <MountReveal delay={0.06}>
-            <p className="eyebrow mt-9">Senior Software Engineer — AI · Full-Stack · Windows</p>
-          </MountReveal>
-          <MountReveal delay={0.12}>
-            <h1 className="display mt-4 text-6xl sm:text-8xl lg:text-[8.25rem]">
-              <span className="text-grad">Brian Yang</span>
-            </h1>
-          </MountReveal>
-          <MountReveal delay={0.18}>
-            <p className="display mt-1 text-4xl text-foreground sm:text-6xl lg:text-[4.5rem]">
-              builds what others <span className="text-grad">call impossible.</span>
-            </p>
-          </MountReveal>
-          <MountReveal delay={0.24}>
-            <p className="mt-7 max-w-[48ch] text-lg leading-relaxed text-dim">
-              Software engineer since before it was a job —{' '}
-              <span className="font-semibold text-foreground">
-                Windows internals to multi-model AI pipelines
-              </span>
-              , with payments platforms, e-commerce at scale, and{' '}
-              <span className="font-semibold text-foreground">{projectHighlights.length} shipped products I can name</span>{' '}
-              in between, and a good deal more under NDA.
-            </p>
-          </MountReveal>
-          <MountReveal delay={0.30}>
-            <div className="mt-7 flex flex-wrap gap-2.5">
-              {['Alipay-scale payments', 'Multi-model AI pipelines', 'Web3 & blockchain', 'Windows internals'].map(
-                (chip) => (
-                  <span
-                    key={chip}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-[0.8rem] text-dim"
-                  >
-                    <Zap className="h-3 w-3 text-accent" />
-                    {chip}
-                  </span>
-                )
-              )}
-            </div>
-          </MountReveal>
-          <MountReveal delay={0.36}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link href="/projects" className="btn-primary">
-                See the work <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/contact" className="btn-ghost">
-                Let&apos;s talk
-              </Link>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-24 pt-32 sm:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14 lg:px-10 lg:pt-24">
+          <div className="min-w-0">
+            <MountReveal>
+              <div className="flex flex-wrap items-center gap-3">
+                <Portrait size={48} priority />
+                <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur">
+                  <i className="status-dot" />
+                  AVAILABLE FOR NEW OPPORTUNITIES
+                </span>
+                <span className="hidden items-center gap-2 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur sm:inline-flex">
+                  <Star className="h-3 w-3 fill-accent text-accent" />
+                  10+ YEARS · {projectHighlights.length} NAMED PRODUCTS
+                </span>
+              </div>
+            </MountReveal>
+            <MountReveal delay={0.06}>
+              <p className="eyebrow mt-9">Senior Software Engineer — AI · Full-Stack · Windows</p>
+            </MountReveal>
+            <MountReveal delay={0.12}>
+              <h1 className="display mt-4 text-6xl sm:text-8xl lg:text-[6rem] xl:text-[6.5rem]">
+                <span className="text-grad">Brian Yang</span>
+              </h1>
+            </MountReveal>
+            <MountReveal delay={0.18}>
+              <p className="display mt-1 text-4xl text-foreground sm:text-6xl lg:text-[3.25rem] xl:text-[3.5rem]">
+                builds what others <span className="text-grad">call impossible.</span>
+              </p>
+            </MountReveal>
+            <MountReveal delay={0.24}>
+              <p className="mt-7 max-w-[48ch] text-lg leading-relaxed text-dim">
+                Software engineer since before it was a job —{' '}
+                <span className="font-semibold text-foreground">
+                  Windows internals to multi-model AI pipelines
+                </span>
+                , with payments platforms, e-commerce at scale, and{' '}
+                <span className="font-semibold text-foreground">{projectHighlights.length} shipped products I can name</span>{' '}
+                in between, and a good deal more under NDA.
+              </p>
+            </MountReveal>
+            <MountReveal delay={0.30}>
+              <div className="mt-7 flex flex-wrap gap-2.5">
+                {['Alipay-scale payments', 'Multi-model AI pipelines', 'Web3 & blockchain', 'Windows internals'].map(
+                  (chip) => (
+                    <span
+                      key={chip}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-[0.8rem] text-dim"
+                    >
+                      <Zap className="h-3 w-3 text-accent" />
+                      {chip}
+                    </span>
+                  )
+                )}
+              </div>
+            </MountReveal>
+            <MountReveal delay={0.36}>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link href="/projects" className="btn-primary">
+                  See the work <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/contact" className="btn-ghost">
+                  Let&apos;s talk
+                </Link>
+              </div>
+            </MountReveal>
+          </div>
+          <MountReveal delay={0.24} className="mx-auto w-full max-w-md lg:justify-self-end">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-panel shadow-2xl">
+              <Image
+                src={`${BASE_PATH}/hero-portrait.webp`}
+                alt={`${SITE_CONFIG.name} smiling in a navy blazer`}
+                fill
+                sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 1023px) 448px, 40vw"
+                loading="eager"
+                className="object-cover"
+              />
             </div>
           </MountReveal>
         </div>
