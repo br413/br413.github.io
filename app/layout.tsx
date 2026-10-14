@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.summary,
     images: [
       {
-        url: `${SITE_CONFIG.url}/favicon.png`,
+        url: `${SITE_CONFIG.url}/social-portrait.jpg`,
         width: 512,
         height: 512,
         alt: SITE_CONFIG.name,
@@ -87,10 +87,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
     description: SITE_CONFIG.summary,
-    images: [`${SITE_CONFIG.url}/favicon.png`],
+    images: [{ url: `${SITE_CONFIG.url}/social-portrait.jpg`, alt: SITE_CONFIG.name }],
   },
   category: 'technology',
 };
