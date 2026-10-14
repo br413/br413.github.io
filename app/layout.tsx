@@ -66,9 +66,12 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: `${BASE_PATH}/favicon.png`,
-    shortcut: `${BASE_PATH}/favicon.png`,
-    apple: `${BASE_PATH}/favicon.png`,
+    icon: [
+      { url: `${BASE_PATH}/by-icon.png`, sizes: '32x32', type: 'image/png' },
+      { url: `${BASE_PATH}/by-icon.svg`, sizes: 'any', type: 'image/svg+xml' },
+    ],
+    shortcut: `${BASE_PATH}/by-icon.png`,
+    apple: { url: `${BASE_PATH}/by-apple-icon.png`, sizes: '180x180', type: 'image/png' },
   },
   openGraph: {
     type: 'website',
