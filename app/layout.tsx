@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.summary,
     images: [
       {
-        url: `${SITE_CONFIG.url}/social-portrait.jpg`,
+        url: `${SITE_CONFIG.url}/social-speaker.jpg`,
         width: 512,
         height: 512,
         alt: SITE_CONFIG.name,
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
     description: SITE_CONFIG.summary,
-    images: [{ url: `${SITE_CONFIG.url}/social-portrait.jpg`, alt: SITE_CONFIG.name }],
+    images: [{ url: `${SITE_CONFIG.url}/social-speaker.jpg`, alt: SITE_CONFIG.name }],
   },
   category: 'technology',
 };
