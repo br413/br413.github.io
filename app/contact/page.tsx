@@ -88,14 +88,10 @@ export default function ContactPage() {
               <h2 id="contact-form-heading" className="text-2xl font-semibold tracking-tight">
                 Send a message
               </h2>
-              <p id="contact-form-note" className="mt-3 text-sm leading-relaxed text-dim">
-                Your message is sent to {SITE_CONFIG.email} via FormSubmit.
-              </p>
               <form
                 action={`https://formsubmit.co/${SITE_CONFIG.email}`}
                 method="POST"
                 aria-labelledby="contact-form-heading"
-                aria-describedby="contact-form-note"
                 className="mt-6 space-y-5"
               >
                 <input type="hidden" name="_subject" value="New portfolio contact message" />
