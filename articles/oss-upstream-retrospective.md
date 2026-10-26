@@ -1,14 +1,14 @@
 ---
 title: "What I Learned Contributing to Prefect, dbt, and Airflow (An Honest OSS Retrospective)"
 published: false
-description: "Seven upstream merges across Prefect, dbt, Airflow, Meltano, and InvenTree — what actually worked for OSS contributions as a senior data engineer."
+description: "Ten verified upstream merges across Prefect, dbt, Airflow, Meltano, and InvenTree — what actually worked for OSS contributions as a senior data engineer."
 tags: dataengineering, opensource, career, airflow
 series: Cloud Data Platform Patterns
 canonical_url: https://github.com/br413/br413
 cover_image: https://raw.githubusercontent.com/br413/br413.github.io/main/assets/devto-cover-oss-retrospective.png
 ---
 
-Portfolio repos prove you can build. **Upstream merges** prove you can collaborate with teams that maintain the tools production platforms run on. Over roughly six months I ran both tracks in parallel — portfolio releases, Dev.to writing, and OSS contributions to Prefect, dbt docs, Airflow, Meltano, and InvenTree — without backdating history or republishing private employer work.
+Portfolio repos prove you can build. **Upstream merges** prove you can collaborate with teams that maintain the tools production platforms run on. Since June 2026 I ran both tracks in parallel — portfolio releases, Dev.to writing, and OSS contributions to Prefect, dbt docs, Airflow, Meltano, and InvenTree — without backdating history or republishing private employer work.
 
 > **Portfolio:** [br413.github.io](https://br413.github.io/) · **Contribution plan:** [github.com/br413/br413](https://github.com/br413/br413/blob/main/docs/nov-jan-contribution-plan.md)
 
@@ -29,21 +29,23 @@ My portfolio stack — [production-data-pipeline](https://github.com/br413/produ
 | [Prefect #22500](https://github.com/PrefectHQ/prefect/pull/22500) | Prefect | Kubernetes readiness vs liveness probes | Small, verifiable ops detail; maintainer-aligned |
 | [dbt docs #9606](https://github.com/dbt-labs/docs.getdbt.com/pull/9606) | dbt docs | Prefixed custom schema troubleshooting | Deployment pitfall many teams hit silently |
 | [Airflow #71158](https://github.com/apache/airflow/pull/71158) | Airflow | Metrics vs traces `otel_*` config clarity | Docs clarity; merged after second reviewer |
-| [dbt docs #9781](https://github.com/dbt-labs/docs.getdbt.com/pull/9781) | dbt docs | `dbt deps` / `packages.yml` troubleshooting | Issue-linked docs fix; easy to verify |
+| [dbt docs #9781](https://github.com/dbt-labs/docs.getdbt.com/pull/9781) | dbt docs | Fusion telemetry: `duration_ms` slowest-node ranking | Corrects the metric in a documented example |
 | [Meltano #10253](https://github.com/meltano/meltano/pull/10253) | Meltano | `meltano run` vs `meltano el` guide | Maintainer-requested relocation + `el` vs deprecated `elt` |
 | [InvenTree #12420](https://github.com/inventree/InvenTree/pull/12420) | InvenTree | Docker Compose health check docs | Aligned to merged compose config; docs-only |
 | [InvenTree #12474](https://github.com/inventree/InvenTree/pull/12474) | InvenTree | SSO via Database Admin interface | Review feedback addressed; linked to `db_admin.md` |
+| [Prefect #22533](https://github.com/PrefectHQ/prefect/pull/22533) | Prefect | Global concurrency limit setup | Addressed review feedback; merged September 11, 2026 |
+| [Airflow #70171](https://github.com/apache/airflow/pull/70171) | Airflow | dbt Cloud failure details in the hook, operator, and sensor, with unit tests | Maintainer-reviewed implementation; merged September 14, 2026 |
+| [dbt docs #9960](https://github.com/dbt-labs/docs.getdbt.com/pull/9960) | dbt docs | Macro argument type `bool` | Documentation correction; merged September 29, 2026 |
 
-**Pattern:** documentation and operational clarity beat drive-by feature PRs for early upstream contributions. Every merge was easy to review, tied to real production confusion, and did not require deep codebase archaeology.
+**Pattern:** keep scope reviewable, verify behavior, and respond precisely to maintainer feedback. Airflow #70171 adds implementation and unit-test evidence alongside the documentation contributions.
 
 ## What's still open (and what that teaches)
 
-As of September 2026, two PRs remain in flight:
+As of September 30, 2026, one tracked PR remains in flight. Statuses and authorship were checked against GitHub; the [contribution record](https://github.com/br413/br413/blob/main/docs/work-history.md) lists the ten verified merges.
 
 | PR | Status | Lesson |
 |----|--------|--------|
-| [Prefect #22533](https://github.com/PrefectHQ/prefect/pull/22533) | Changes requested → addressed | Automated review catches doc accuracy gaps; respond precisely |
-| [Airflow #70171](https://github.com/apache/airflow/pull/70171) | Open — CI green | Provider PRs need patience; keep CI green, don't churn |
+| [dbt docs #9961](https://github.com/dbt-labs/docs.getdbt.com/pull/9961) | Open | Clarify which behavior flags Fusion removes; respond to maintainer feedback |
 
 **Closed gracefully:**
 
@@ -87,12 +89,12 @@ Each layer answers a different reviewer question:
 
 | Outcome | Target | Status |
 |---------|--------|--------|
-| Upstream merges | 5+ | **7** ✓ |
+| Merged PRs in the verified record | 5+ | **10** ✓ |
 | Dev.to articles | 4 | **4** ✓ |
 | Portfolio release | v0.3.0 | ✓ |
-| Open upstream WIP | ≤ 2 | **2** (#70171, #22533) |
+| Tracked open upstream WIP | ≤ 2 | **1** (#9961) |
 
-The 5+ merge target is met. Remaining work is review bandwidth on two in-flight PRs — not starting new upstream breadth until those land or close.
+The 5+ merge target is met. The remaining tracked PR is dbt docs #9961. Future work depends on maintainer feedback and the portfolio backlog.
 
 ## Rules I kept (and recommend)
 
