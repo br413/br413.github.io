@@ -15,6 +15,8 @@ export const metadata = {
 const contactLinks = [
   { title: 'Email', note: 'Best way to reach me', href: `mailto:${SITE_CONFIG.email}` },
   { title: 'GitHub', note: 'Open source and side projects', href: SITE_CONFIG.github },
+  { title: 'Telegram', note: '@CtrlAltBomb', href: SITE_CONFIG.telegram },
+  { title: 'WhatsApp', note: '+1 442 360 3951', href: SITE_CONFIG.whatsapp },
 ]
 
 const trustSignals = [
@@ -73,7 +75,7 @@ export default function ContactPage() {
                     <span className="text-xl font-semibold tracking-tight transition-colors group-hover:text-accent">
                       {link.title}
                     </span>
-                    <span className="ml-4 hidden text-sm text-dim sm:inline">{link.note}</span>
+                    <span className="mt-1 block text-sm text-dim sm:ml-4 sm:mt-0 sm:inline">{link.note}</span>
                   </span>
                   <ArrowUpRight className="h-4 w-4 text-faint transition-colors group-hover:text-accent" />
                 </a>

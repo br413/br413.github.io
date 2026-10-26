@@ -8,6 +8,8 @@ export const SITE_CONFIG = {
     'I build software that ships. I enjoy turning ideas into working products, learning new stacks along the way, and solving real problems for real people.',
   email: 'br198064@gmail.com',
   github: 'https://github.com/br413',
+  telegram: 'https://t.me/CtrlAltBomb',
+  whatsapp: 'https://wa.me/14423603951',
   repo: 'br413.github.io',
   url: 'https://br413.github.io',
 }
