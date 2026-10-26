@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Portrait } from '@/components/portrait'
 import { Reveal } from '@/components/fx'
 import { PrintButton } from '@/components/print-button'
 import { experiences, skillCategories, projectHighlights, education } from '@/lib/data'
@@ -26,7 +25,6 @@ export default function ResumePage() {
           <Reveal>
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <Portrait size={104} className="mb-7 rounded-2xl" priority />
                 <p className="eyebrow">Resume</p>
                 <h1 className="display mt-3 text-4xl sm:text-6xl">
                   <span className="text-grad">{SITE_CONFIG.name}</span>

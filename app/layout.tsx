@@ -5,7 +5,6 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BASE_PATH, SITE_CONFIG } from "@/lib/constants";
-import { getProfileImage } from "@/lib/profile-image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -119,9 +118,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: SITE_CONFIG.name,
               jobTitle: SITE_CONFIG.title,
-              ...(getProfileImage()
-                ? { image: `${SITE_CONFIG.url}${getProfileImage()}` }
-                : {}),
+              image: `${SITE_CONFIG.url}/hero-speaker-refined.webp`,
               description: SITE_CONFIG.summary,
               email: `mailto:${SITE_CONFIG.email}`,
               url: SITE_CONFIG.url,

@@ -1,5 +1,4 @@
 import { ArrowUpRight, Check } from 'lucide-react'
-import { Portrait } from '@/components/portrait'
 import { Reveal } from '@/components/fx'
 import { SITE_CONFIG } from '@/lib/constants'
 
@@ -32,7 +31,6 @@ export default function ContactPage() {
         <div className="aurora" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
           <Reveal>
-            <Portrait size={72} className="mb-7" priority />
             <p className="eyebrow">Contact</p>
             <h1 className="display mt-3 text-4xl sm:text-6xl lg:text-7xl">
               Have a problem <span className="text-grad">nobody</span>

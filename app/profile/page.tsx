@@ -36,48 +36,60 @@ export default function ProfilePage() {
       </section>
 
       {/* Snaphunt traits */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="snaphunt-heading">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <Reveal>
-            <div className="mb-2 flex items-center gap-4">
-              <h2 className="mono-label text-accent">01 — SNAPHUNT PSYCHOMETRIC</h2>
-              <div className="h-px flex-1 bg-line" />
-            </div>
+          <Reveal className="mb-8">
+            <h2 id="snaphunt-heading" className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              Snaphunt psychometric profile
+            </h2>
+            <p className="mt-3 max-w-2xl leading-relaxed text-dim">
+              Thinking, execution, collaboration, and adaptability.
+            </p>
           </Reveal>
-          <div className="grid sm:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {psychometricTraits.map((trait, i) => (
-              <Reveal key={trait.category} delay={(i % 2) * 0.08}>
-                <div className="h-full border-b border-line py-10 sm:pr-10 sm:odd:border-r sm:even:pl-10">
-                  <h3 className="text-xl font-semibold tracking-tight">{trait.category}</h3>
-                  <p className="mono-label mt-1.5 text-accent">{trait.traits.join(' · ').toUpperCase()}</p>
-                  <p className="mt-4 text-[0.92rem] leading-relaxed text-dim">{trait.description}</p>
+              <Reveal key={trait.category} delay={(i % 2) * 0.08} className="h-full">
+                <div className="h-full rounded-2xl border border-line bg-panel p-6 sm:p-8">
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground">{trait.category}</h3>
+                  <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${trait.category} traits`}>
+                    {trait.traits.map((label) => (
+                      <li key={label} className="rounded-full bg-background-2 px-3 py-1 text-sm font-medium text-accent">
+                        {label}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 leading-relaxed text-dim">{trait.description}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
-          <div className="mt-16 grid gap-12 lg:grid-cols-2">
-            <Reveal>
-              <p className="mono-label mb-5 text-accent">ROLE FIT</p>
-              <ul className="space-y-3">
-                {psychometricSummary.roleFit.map((item) => (
-                  <li key={item} className="flex gap-3 leading-relaxed text-dim">
-                    <span className="select-none pt-px text-accent">—</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <Reveal className="h-full">
+              <div className="h-full rounded-2xl border border-line bg-panel p-6 sm:p-8">
+                <h3 className="text-xl font-semibold tracking-tight text-foreground">Role fit</h3>
+                <ul className="mt-5 space-y-4">
+                  {psychometricSummary.roleFit.map((item) => (
+                    <li key={item} className="flex gap-3 leading-relaxed text-dim">
+                      <span aria-hidden="true" className="shrink-0 select-none text-accent">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
-            <Reveal delay={0.08}>
-              <p className="mono-label mb-5 text-accent">ORGANIZATION FIT</p>
-              <ul className="space-y-3">
-                {psychometricSummary.organizationFit.map((item) => (
-                  <li key={item} className="flex gap-3 leading-relaxed text-dim">
-                    <span className="select-none pt-px text-accent">—</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <Reveal delay={0.08} className="h-full">
+              <div className="h-full rounded-2xl border border-line bg-panel p-6 sm:p-8">
+                <h3 className="text-xl font-semibold tracking-tight text-foreground">Organization fit</h3>
+                <ul className="mt-5 space-y-4">
+                  {psychometricSummary.organizationFit.map((item) => (
+                    <li key={item} className="flex gap-3 leading-relaxed text-dim">
+                      <span aria-hidden="true" className="shrink-0 select-none text-accent">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           </div>
         </div>
