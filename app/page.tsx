@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, ArrowUpRight, Sparkles, Star, Zap } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react'
 import { Orb } from '@/components/orb'
-import { Portrait } from '@/components/portrait'
 import { Reveal, MountReveal, Stagger, StaggerItem, Counter, Marquee } from '@/components/fx'
 import { FeaturedCard, type FeaturedProject } from '@/components/featured-card'
 import { experiences, projectHighlights, skillCategories, testimonials } from '@/lib/data'
@@ -40,93 +39,61 @@ export default function Home() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <header className="relative flex min-h-svh items-center overflow-hidden">
-        <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
+      <header className="relative overflow-hidden">
+        <div className="bg-grid absolute inset-0 opacity-30" aria-hidden />
         <Orb />
         <div className="hero-fade pointer-events-none absolute inset-0" />
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-24 pt-32 sm:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14 lg:px-10 lg:pt-24">
-          <div className="min-w-0">
+        <div className="relative z-10 mx-auto grid min-h-svh w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20 lg:px-10 lg:py-28">
+          <div className="min-w-0 max-w-xl">
             <MountReveal>
-              <div className="flex flex-wrap items-center gap-3">
-                <Portrait size={48} priority />
-                <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur">
-                  <i className="status-dot" />
-                  AVAILABLE FOR NEW OPPORTUNITIES
-                </span>
-                <span className="hidden items-center gap-2 rounded-full border border-line bg-panel/60 px-4 py-2 font-mono text-[0.72rem] tracking-[0.14em] text-dim backdrop-blur sm:inline-flex">
-                  <Star className="h-3 w-3 fill-accent text-accent" />
-                  10+ YEARS · {projectHighlights.length} NAMED PRODUCTS
-                </span>
-              </div>
-            </MountReveal>
-            <MountReveal delay={0.06}>
-              <p className="eyebrow mt-9">Senior Software Engineer — AI · Full-Stack · Windows</p>
-            </MountReveal>
-            <MountReveal delay={0.12}>
-              <h1 className="display mt-4 text-6xl sm:text-8xl lg:text-[6rem] xl:text-[6.5rem]">
-                <span className="text-grad">Brian Yang</span>
+              <h1 className="display text-[3.5rem] sm:text-7xl lg:text-[5rem] xl:text-[5.5rem]">
+                <span className="text-grad">{SITE_CONFIG.name}</span>
               </h1>
             </MountReveal>
+            <MountReveal delay={0.06}>
+              <p className="mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                Senior Software Engineer
+              </p>
+            </MountReveal>
+            <MountReveal delay={0.12}>
+              <p className="mt-6 max-w-[44ch] text-lg leading-relaxed text-dim">
+                I build software that solves practical problems. My focus is clear code, thoughtful
+                design, and systems that are easy to use and maintain.
+              </p>
+            </MountReveal>
             <MountReveal delay={0.18}>
-              <p className="display mt-1 text-4xl text-foreground sm:text-6xl lg:text-[3.25rem] xl:text-[3.5rem]">
-                builds what others <span className="text-grad">call impossible.</span>
-              </p>
-            </MountReveal>
-            <MountReveal delay={0.24}>
-              <p className="mt-7 max-w-[48ch] text-lg leading-relaxed text-dim">
-                Software engineer since before it was a job —{' '}
-                <span className="font-semibold text-foreground">
-                  Windows internals to multi-model AI pipelines
-                </span>
-                , with payments platforms, e-commerce at scale, and{' '}
-                <span className="font-semibold text-foreground">{projectHighlights.length} shipped products I can name</span>{' '}
-                in between, and a good deal more under NDA.
-              </p>
-            </MountReveal>
-            <MountReveal delay={0.30}>
-              <div className="mt-7 flex flex-wrap gap-2.5">
-                {['Alipay-scale payments', 'Multi-model AI pipelines', 'Web3 & blockchain', 'Windows internals'].map(
-                  (chip) => (
-                    <span
-                      key={chip}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-[0.8rem] text-dim"
-                    >
-                      <Zap className="h-3 w-3 text-accent" />
-                      {chip}
-                    </span>
-                  )
-                )}
+              <div className="mt-7 border-t border-line pt-5">
+                <p className="mono-label !text-dim">Focus</p>
+                <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-foreground">
+                  {['Full-stack development', 'Applied AI', 'Windows systems'].map((focus) => (
+                    <li key={focus}>{focus}</li>
+                  ))}
+                </ul>
               </div>
             </MountReveal>
-            <MountReveal delay={0.36}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/projects" className="btn-primary">
+            <MountReveal delay={0.24}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link href="/projects" className="btn-primary justify-center">
                   See the work <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/contact" className="btn-ghost">
+                <Link href="/contact" className="btn-ghost justify-center">
                   Let&apos;s talk
                 </Link>
               </div>
             </MountReveal>
           </div>
-          <MountReveal delay={0.24} className="mx-auto w-full max-w-md lg:justify-self-end">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-panel shadow-2xl">
+          <MountReveal delay={0.18} className="mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-panel shadow-xl">
               <Image
                 src={`${BASE_PATH}/hero-speaker-refined.webp`}
                 alt={`${SITE_CONFIG.name} speaking at a lectern`}
                 fill
-                sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 1023px) 448px, 40vw"
+                sizes="(max-width: 424px) calc(100vw - 40px), (max-width: 1023px) 384px, 40vw"
                 loading="eager"
                 className="object-cover"
               />
             </div>
           </MountReveal>
-        </div>
-        <div className="absolute inset-x-0 bottom-6 z-10">
-          <div className="mx-auto flex max-w-7xl justify-between px-5 font-mono text-[0.68rem] tracking-[0.18em] text-faint sm:px-8 lg:px-10">
-            <span>EST. 1994 — FIRST LINE OF PASCAL</span>
-            <span className="animate-pulse">SCROLL ↓</span>
-          </div>
         </div>
       </header>
 
