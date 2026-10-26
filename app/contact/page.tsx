@@ -57,31 +57,93 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Channels */}
+      {/* Contact options and message form */}
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <Reveal>
-            <div className="border-t border-line">
-              {contactLinks.map((link, i) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                  rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  className="group grid grid-cols-[2.4rem_1fr_auto] items-baseline gap-4 border-b border-line px-1 py-6 transition-[padding,background-color] duration-300 hover:bg-background-2 hover:pl-4"
-                >
-                  <span className="mono-label pt-1">0{i + 1}</span>
-                  <span>
-                    <span className="text-xl font-semibold tracking-tight transition-colors group-hover:text-accent">
-                      {link.title}
+          <div className="grid items-start gap-12 lg:grid-cols-2">
+            <Reveal>
+              <div className="border-t border-line">
+                {contactLinks.map((link, i) => (
+                  <a
+                    key={link.title}
+                    href={link.href}
+                    target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    className="group grid grid-cols-[2.4rem_1fr_auto] items-baseline gap-4 border-b border-line px-1 py-6 transition-[padding,background-color] duration-300 hover:bg-background-2 hover:pl-4"
+                  >
+                    <span className="mono-label pt-1">0{i + 1}</span>
+                    <span>
+                      <span className="text-xl font-semibold tracking-tight transition-colors group-hover:text-accent">
+                        {link.title}
+                      </span>
+                      <span className="mt-1 block text-sm text-dim sm:ml-4 sm:mt-0 sm:inline">{link.note}</span>
                     </span>
-                    <span className="mt-1 block text-sm text-dim sm:ml-4 sm:mt-0 sm:inline">{link.note}</span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-faint transition-colors group-hover:text-accent" />
-                </a>
-              ))}
-            </div>
-          </Reveal>
+                    <ArrowUpRight className="h-4 w-4 text-faint transition-colors group-hover:text-accent" />
+                  </a>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal className="rounded-2xl border border-line bg-panel p-6 sm:p-8">
+              <h2 id="contact-form-heading" className="text-2xl font-semibold tracking-tight">
+                Send a message
+              </h2>
+              <p id="contact-form-note" className="mt-3 text-sm leading-relaxed text-dim">
+                Your message is sent to {SITE_CONFIG.email} via FormSubmit.
+              </p>
+              <form
+                action={`https://formsubmit.co/${SITE_CONFIG.email}`}
+                method="POST"
+                aria-labelledby="contact-form-heading"
+                aria-describedby="contact-form-note"
+                className="mt-6 space-y-5"
+              >
+                <input type="hidden" name="_subject" value="New portfolio contact message" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_url" value={`${SITE_CONFIG.url}/contact/`} />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+
+                <div>
+                  <label htmlFor="contact-name" className="mb-2 block text-sm font-medium">Name</label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    maxLength={100}
+                    className="w-full rounded-lg border border-line bg-background px-4 py-3 text-base outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-email" className="mb-2 block text-sm font-medium">Email</label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    maxLength={254}
+                    className="w-full rounded-lg border border-line bg-background px-4 py-3 text-base outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-message" className="mb-2 block text-sm font-medium">Message</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    maxLength={5000}
+                    rows={5}
+                    className="w-full resize-y rounded-lg border border-line bg-background px-4 py-3 text-base outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  />
+                </div>
+                <button type="submit" className="btn-primary justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+                  Send message
+                </button>
+              </form>
+            </Reveal>
+          </div>
 
           <Reveal className="mt-12">
             <div className="flex flex-wrap gap-x-8 gap-y-3">

@@ -45,7 +45,6 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
         <Link href="/" className="group flex items-center gap-2 font-mono text-base font-bold tracking-wider">
           <span className="text-grad">{SITE_CONFIG.name.split(' ').map((w) => w[0]).join('')}</span>
-          <span className="text-faint transition-colors group-hover:text-accent">_dev</span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

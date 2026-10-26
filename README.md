@@ -23,6 +23,12 @@ Article sources, cover assets, documentation, and publishing scripts are preserv
 
 [portfolio_br](https://github.com/br413/portfolio_br) remains the earlier, independently deployed [project-site copy](https://br413.github.io/portfolio_br/). Changes in this repository do not automatically update that copy.
 
+## Contact form
+
+The Contact page submits name, email, and message to FormSubmit for delivery to `SITE_CONFIG.email` (`br198064@gmail.com`). It uses a normal HTTPS POST, so it works with the static GitHub Pages export and does not need a server or client-side API key. FormSubmit uses the visitor's `email` field for replies; its default CAPTCHA remains enabled, with an additional honeypot field.
+
+On the first submission, FormSubmit emails the recipient an activation link. Open that email and activate the form before relying on delivery; check Spam if needed. After activation, send a test from the live Contact page and confirm it arrives in the inbox. FormSubmit handles the CAPTCHA, submission errors, and confirmation page. The existing direct email link remains available as an alternative.
+
 ## License
 
 MIT
