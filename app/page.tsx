@@ -85,8 +85,8 @@ export default function Home() {
           <MountReveal delay={0.18} className="mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-panel shadow-xl">
               <Image
-                src={`${BASE_PATH}/hero-speaker-refined.webp`}
-                alt={`${SITE_CONFIG.name} speaking at a lectern`}
+                src={`${BASE_PATH}/brian-yang-laptop.webp`}
+                alt={`${SITE_CONFIG.name} working on a laptop`}
                 fill
                 sizes="(max-width: 424px) calc(100vw - 40px), (max-width: 1023px) 384px, 40vw"
                 loading="eager"

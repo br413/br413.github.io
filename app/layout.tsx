@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.summary,
     images: [
       {
-        url: `${SITE_CONFIG.url}/social-speaker-refined.jpg`,
+        url: `${SITE_CONFIG.url}/brian-yang-laptop-social.jpg`,
         width: 512,
         height: 512,
         alt: SITE_CONFIG.name,
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`,
     description: SITE_CONFIG.summary,
-    images: [{ url: `${SITE_CONFIG.url}/social-speaker-refined.jpg`, alt: SITE_CONFIG.name }],
+    images: [{ url: `${SITE_CONFIG.url}/brian-yang-laptop-social.jpg`, alt: SITE_CONFIG.name }],
   },
   category: 'technology',
 };
@@ -118,7 +118,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: SITE_CONFIG.name,
               jobTitle: SITE_CONFIG.title,
-              image: `${SITE_CONFIG.url}/hero-speaker-refined.webp`,
+              image: `${SITE_CONFIG.url}/brian-yang-laptop.webp`,
               description: SITE_CONFIG.summary,
               email: `mailto:${SITE_CONFIG.email}`,
               url: SITE_CONFIG.url,
