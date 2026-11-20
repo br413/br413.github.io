@@ -28,7 +28,7 @@ See Google's [ownership verification instructions](https://support.google.com/we
 
 ## Article sources and Dev.to publishing
 
-The original article Markdown in `articles/` and cover images in `assets/` remain available in GitHub and are copied into the published site at the same paths. They are retained source files, separate from the rendered Next.js blog content.
+The article Markdown in `articles/` is the source for four technical `/blog/[slug]/` pages (loaded via `lib/markdown-posts.ts`). Cover images in `assets/` remain available and are copied into the published site. Prefer the rendered blog URLs for Search Console and backlinks.
 
 The PowerShell publishing scripts remain available. Obtain a Dev.to API key from [the account settings](https://dev.to/settings/extensions) and set `DEVTO_API_KEY` in the current shell without committing it. From the repository root, run a publishing command only when you intend to publish the article:
 

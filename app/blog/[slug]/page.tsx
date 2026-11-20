@@ -2,8 +2,10 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Reveal } from '@/components/fx'
+import { MarkdownArticle } from '@/components/markdown-article'
 import { blogPosts, blogPostContents } from '@/lib/data'
 import { SITE_CONFIG } from '@/lib/constants'
+import { getMarkdownBody, isMarkdownPost } from '@/lib/markdown-posts'
 
 export function generateStaticParams() {
   return blogPosts
@@ -57,6 +59,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
   const content = blogPostContents.find((c) => c.slug === slug)
+  const markdown = isMarkdownPost(slug) ? getMarkdownBody(slug) : null
 
   if (!post) notFound()
 
@@ -105,8 +108,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Content */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="max-w-[68ch]">
-            {content ? (
+          <div className={markdown ? 'max-w-[76ch]' : 'max-w-[68ch]'}>
+            {markdown ? (
+              <Reveal>
+                <article>
+                  <MarkdownArticle content={markdown} />
+                </article>
+              </Reveal>
+            ) : content ? (
               <article>
                 {content.sections.map((section, sIndex) => (
                   <Reveal key={sIndex}>

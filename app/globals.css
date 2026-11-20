@@ -190,6 +190,112 @@ body {
   margin-bottom: 0;
 }
 
+.prose-md h2 {
+  margin: 2.25rem 0 1rem;
+  font-size: 1.45rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+.prose-md h3 {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--foreground);
+}
+.prose-md ul,
+.prose-md ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--dim);
+  line-height: 1.75;
+}
+.prose-md li {
+  margin-bottom: 0.45rem;
+}
+.prose-md li::marker {
+  color: var(--accent);
+}
+.prose-md ul {
+  list-style: disc;
+}
+.prose-md ol {
+  list-style: decimal;
+}
+.prose-md a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.prose-md a:hover {
+  color: var(--accent-bright);
+}
+.prose-md strong {
+  color: var(--foreground);
+  font-weight: 650;
+}
+.prose-md blockquote {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--background-2);
+  color: var(--dim);
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+.prose-md blockquote p {
+  margin-bottom: 0.5rem;
+}
+.prose-md blockquote p:last-child {
+  margin-bottom: 0;
+}
+.prose-md hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.prose-md pre {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border-radius: 0.85rem;
+  border: 1px solid var(--line);
+  background: var(--background-2);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+.prose-md code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+.prose-md :not(pre) > code {
+  padding: 0.12em 0.35em;
+  border-radius: 0.35rem;
+  background: var(--background-2);
+  border: 1px solid var(--line);
+  color: var(--foreground);
+}
+.prose-md table {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.prose-md th,
+.prose-md td {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  color: var(--dim);
+}
+.prose-md th {
+  background: var(--background-2);
+  color: var(--foreground);
+  font-weight: 650;
+}
+
 /* glass card */
 .glass {
   background: color-mix(in srgb, var(--panel) 72%, transparent);

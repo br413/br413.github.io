@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/fx'
 import { blogPosts, blogPostContents, storyParagraphs } from '@/lib/data'
+import { getMarkdownBody, isMarkdownPost } from '@/lib/markdown-posts'
 
 export const metadata = {
   title: 'Blog',
@@ -25,6 +26,10 @@ function readTimeFor(slug: string, excerpt: string) {
     return estimateReadTime(
       content.sections.flatMap((s) => s.paragraphs).join(' ')
     )
+  }
+  if (isMarkdownPost(slug)) {
+    const body = getMarkdownBody(slug)
+    if (body) return estimateReadTime(body)
   }
   return estimateReadTime(excerpt)
 }

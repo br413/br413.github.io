@@ -204,6 +204,38 @@ export const blogPosts = [
     tags: ['Career', 'Story'],
   },
   {
+    slug: 'oss-upstream-retrospective',
+    title: 'What I Learned Contributing to Prefect, dbt, and Airflow',
+    excerpt:
+      'Seven upstream merges across Prefect, dbt, Airflow, Meltano, and InvenTree — what actually worked for OSS contributions as a senior engineer.',
+    date: '2026-09-15',
+    tags: ['Open Source', 'Career', 'Airflow'],
+  },
+  {
+    slug: 'contract-versioning-production-pipelines',
+    title: 'Contract Versioning in Production Pipelines',
+    excerpt:
+      'How a git-native contract registry, semver pins, and versioned run history make dataset quality auditable without a separate platform team.',
+    date: '2026-08-20',
+    tags: ['Data Quality', 'Python', 'Airflow'],
+  },
+  {
+    slug: 'data-quality-contracts-production-pipelines',
+    title: 'Data Quality Contracts in Production Pipelines',
+    excerpt:
+      'Layer row-level quarantine at ingestion and YAML dataset contracts at the quality boundary — with alerts, failure artifacts, and CI enforcement.',
+    date: '2026-08-05',
+    tags: ['Data Quality', 'Python', 'dbt'],
+  },
+  {
+    slug: 'building-production-data-pipeline',
+    title: 'Building a Production Data Pipeline with Incremental Loading and dbt',
+    excerpt:
+      'Idempotent API ingestion, checkpoint recovery, medallion layering, and Airflow orchestration — with failure modes every production pipeline should document.',
+    date: '2026-07-20',
+    tags: ['Data Engineering', 'dbt', 'Airflow'],
+  },
+  {
     slug: 'nine-years-and-uncle',
     title: 'Nine Years, and Uncle',
     excerpt: 'A client I met on Upwork, two accidents, and a bond that refused to break — the story of a nine-year project that finally came home.',
