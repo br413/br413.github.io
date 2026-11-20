@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   email: 'br198064@gmail.com',
   github: 'https://github.com/br413',
   telegram: 'https://t.me/CtrlAltBomb',
-  whatsapp: 'https://wa.me/14423603951',
+  whatsapp: 'https://wa.me/17169913401',
   repo: 'br413.github.io',
   url: 'https://br413.github.io',
 }

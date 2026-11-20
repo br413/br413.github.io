@@ -16,7 +16,7 @@ const contactLinks = [
   { title: 'Email', note: 'Best way to reach me', href: `mailto:${SITE_CONFIG.email}` },
   { title: 'GitHub', note: 'Open source and side projects', href: SITE_CONFIG.github },
   { title: 'Telegram', note: '@CtrlAltBomb', href: SITE_CONFIG.telegram },
-  { title: 'WhatsApp', note: '+1 442 360 3951', href: SITE_CONFIG.whatsapp },
+  { title: 'WhatsApp', note: '+1 716 991 3401', href: SITE_CONFIG.whatsapp },
 ]
 
 const trustSignals = [
