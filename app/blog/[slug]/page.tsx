@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Reveal } from '@/components/fx'
 import { blogPosts, blogPostContents } from '@/lib/data'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export function generateStaticParams() {
   return blogPosts
@@ -59,8 +60,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   if (!post) notFound()
 
+  const articleUrl = `${SITE_CONFIG.url}/blog/${post.slug}/`
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+    keywords: post.tags.join(', '),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
       {/* Header */}
       <section className="border-b border-line pb-14 pt-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
